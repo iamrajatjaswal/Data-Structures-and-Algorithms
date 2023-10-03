@@ -78,3 +78,25 @@ var numIdenticalPairs = function (nums) {
 Time complexity: O(n)
 Space complexity: O(n)
 */
+
+// Approach 2 : Modified Hash Table
+
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var numIdenticalPairs = function (nums) {
+  let pairs = 0;
+  const count = {};
+
+  for (let i = 0; i < nums.length; i++) {
+    count[nums[i]] = (count[nums[i]] || 0) + 1;
+    pairs += count[nums[i]] - 1;
+  }
+
+  return pairs;
+};
+/*
+Time complexity: O(n)
+Space complexity: O(n)
+*/
