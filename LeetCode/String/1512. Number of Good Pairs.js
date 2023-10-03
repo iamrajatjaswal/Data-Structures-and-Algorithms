@@ -34,7 +34,7 @@ Constraints:
  * @param {number[]} nums
  * @return {number}
  */
-var numIdenticalPairs = function(nums) {
+var numIdenticalPairs = function (nums) {
   let pairs = 0;
 
   for (let i = 0; i < nums.length - 1; i++) {
@@ -47,3 +47,8 @@ var numIdenticalPairs = function(nums) {
 
   return pairs;
 };
+
+/*
+Time complexity: O(n^2)
+Space complexity: O(1)
+*/
