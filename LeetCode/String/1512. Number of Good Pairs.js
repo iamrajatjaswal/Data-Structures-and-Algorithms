@@ -30,6 +30,7 @@ Constraints:
 
 */
 
+// Approach 1: Brute Force
 /**
  * @param {number[]} nums
  * @return {number}
@@ -51,4 +52,29 @@ var numIdenticalPairs = function (nums) {
 /*
 Time complexity: O(n^2)
 Space complexity: O(1)
+*/
+
+// Approach 2: Hash Table
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var numIdenticalPairs = function (nums) {
+  let pairs = 0;
+  const count = {};
+
+  console.log(count[nums[0]] || 0);
+
+  for (let i = 0; i < nums.length; i++) {
+    const currCount = count[nums[i]] || 0;
+    pairs += currCount;
+    count[nums[i]] = currCount + 1;
+  }
+
+  return pairs;
+};
+
+/*
+Time complexity: O(n)
+Space complexity: O(n)
 */
