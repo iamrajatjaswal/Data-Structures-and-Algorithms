@@ -40,6 +40,8 @@ The total cost is 6.
 
 */
 
+
+// Solution
 /**
  * @param {number[]} cost
  * @return {number}
