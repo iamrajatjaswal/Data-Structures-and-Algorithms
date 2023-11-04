@@ -1,2 +1,2 @@
-Length: 7
-Last element of the array: z
+Value inside function: 105
+Value inside int main: : 105
