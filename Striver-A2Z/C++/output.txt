@@ -1,1 +1,2 @@
-You are not an adult
+Length: 7
+Last element of the array: z
