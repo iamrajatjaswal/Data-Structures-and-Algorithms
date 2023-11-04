@@ -1,5 +1,1 @@
-# Ignore files without extensions or a dot in their names
-*[^.]    # Matches files without extensions or a dot in their names
-
-# Allow folders without dots in their names
-!*/
+executable-files

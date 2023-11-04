@@ -1,1 +1,1 @@
-Value of x: 12 and y: 93
+String 1: yo and String 2: man
