@@ -244,6 +244,11 @@ void print14(int n) {
   }
 }
 
+/**
+ * @brief Reverse Letter Triangle Pattern
+ *
+ * @param n
+ */
 void print15(int n) {
   for (int i = 1; i <= n; i++) {
     for (char ch = 'A'; ch <= 'A' + (n - i); ch++) {
@@ -253,6 +258,11 @@ void print15(int n) {
   }
 }
 
+/**
+ * @brief Alpha-Ramp Pattern
+ *
+ * @param n
+ */
 void print16(int n) {
   char ch = 'A';
   for (int i = 1; i <= n; i++) {
@@ -288,6 +298,122 @@ void print17(int n) {
   }
 }
 
+/**
+ * @brief Alpha-Triangle Pattern
+ *
+ * @param n
+ */
+void print18(int n) {
+  for (int i = 1; i <= n; i++) {
+    char ch = 'A' + n - i;
+    for (int j = 1; j <= i; j++) {
+      cout << ch++ << " ";
+    }
+    cout << endl;
+  }
+}
+
+/**
+ * @brief Symmetric-Void Pattern
+ *
+ * @param n
+ */
+void print19(int n) {
+  for (int i = 1; i <= n; i++) {
+    for (int j = 1; j <= n - i + 1; j++) {
+      cout << "* ";
+    }
+
+    for (int j = 1; j <= 2 * (i - 1); j++) {
+      cout << "  ";
+    }
+
+    for (int j = 1; j <= n - i + 1; j++) {
+      cout << "* ";
+    }
+
+    cout << endl;
+  }
+
+  for (int i = n; i >= 1; i--) {
+    for (int j = 1; j <= n - i + 1; j++) {
+      cout << "* ";
+    }
+
+    for (int j = 1; j <= 2 * (i - 1); j++) {
+      cout << "  ";
+    }
+
+    for (int j = 1; j <= n - i + 1; j++) {
+      cout << "* ";
+    }
+
+    cout << endl;
+  }
+}
+
+/**
+ * @brief Symmetric-Butterflly Pattern
+ *
+ * @param n
+ */
+void print20(int n) {
+  for (int i = 1; i <= 2 * n - 1; i++) {
+    int breakpoint = i <= n ? i : 2 * n - i;
+
+    for (int j = 1; j <= breakpoint; j++) {
+      cout << "* ";
+    }
+
+    for (int j = 1; j <= 2 * (n - breakpoint); j++) {
+      cout << "  ";
+    }
+
+    for (int j = 1; j <= breakpoint; j++) {
+      cout << "* ";
+    }
+
+    cout << endl;
+  }
+}
+
+/**
+ * @brief Hollow Rectangle Pattern
+ *
+ * @param n
+ */
+void print21(int n) {
+  for (int i = 1; i <= n; i++) {
+    for (int j = 1; j <= n; j++) {
+      if (i == 1 || i == n || j == 1 || j == n) {
+        cout << "* ";
+      } else {
+        cout << "  ";
+      }
+    }
+    cout << endl;
+  }
+}
+
+/**
+ * @brief The Number Pattern
+ *
+ * @param n
+ */
+void print22(int n) {
+  for (int i = 0; i < 2 * n - 1; i++) {
+    for (int j = 0; j < 2 * n - 1; j++) {
+      int top = i;
+      int left = j;
+      int right = 2 * n - 2 - left;
+      int bottom = 2 * n - 2- top;
+
+      cout << n - min(min(top, bottom), min(left, right)) << " ";
+    }
+    cout << endl;
+  }
+}
+
 int main() {
   int t;
   cin >> t;
@@ -311,7 +437,12 @@ int main() {
     // print14(n);
     // print15(n);
     // print16(n);
-    print17(n);
+    // print17(n);
+    // print18(n);
+    // print19(n);
+    // print20(n);
+    // print21(n);
+    print22(n);
     cout << endl;
   }
 
