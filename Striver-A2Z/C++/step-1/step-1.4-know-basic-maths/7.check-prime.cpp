@@ -14,7 +14,7 @@ Given an integer, check if it is prime or not. Print true if number is prime, pr
 void checkPrime(int n) {
   int count = 0;
 
-  for (int i = 0; i * i <= n; i++) {
+  for (int i = 1; i * i <= n; i++) {
     if (n % i == 0) {
       count++;
       if (n / i != i) {
@@ -46,16 +46,10 @@ int main() {
 
 /*
 
-Time Complexity :: O(sqrt(n) * log(sqrt(n))):
-  The time complexity of the provided solution is O(sqrt(n) * log(sqrt(n))) for each test case, where n is the input number.
+Time Complexity :: O(sqrt(N)
+  The time complexity is O(sqrt(n)) for each test case, where n is the input number. The loop runs from i = 1 to sqrt(n), and in each iteration, it performs constant-time operations.
 
-  Breaking it down:
+Space Complexity :: O(sqrt(N)):
+  The space complexity is O(1) because there is a constant amount of extra space used, regardless of the input size. The variable count is the only additional space used, and it doesn't scale with the input size.
 
-  The for loop runs from i = 1 to sqrt(n). In each iteration, the loop performs constant-time operations (pushing elements into the vector), and the loop runs O(sqrt(n)) times.
-  Sorting the vector of divisors takes O(sqrt(n) * log(sqrt(n))) time.
-  Since the sorting step dominates the time complexity, the overall time complexity is O(sqrt(n) * log(sqrt(n))).
-
-
-Space Complexity :: O(sqrt(n)):
-  The space complexity is O(sqrt(n)) because the vector 'list' stores all the divisors, and in the worst case, there can be O(sqrt(n)) divisors.
 */
