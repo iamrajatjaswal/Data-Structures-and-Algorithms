@@ -24,3 +24,9 @@ int main() {
 
   return 0;
 }
+
+/*
+
+Time Complexity: O(log10(N)) -> logN to the base 10
+
+*/
