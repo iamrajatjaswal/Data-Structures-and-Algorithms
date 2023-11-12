@@ -16,30 +16,32 @@ The greatest common divisor (gcd) of two numbers 'n' and 'm' is the largest posi
 
 */
 
-void gcdOrHcf(int n1, int n2) {
-  for (int i = min(n1, n2); i >= 1; i--) {
-    if (n1 % i == 0 && n2 % i == 0) {
-      cout << i;
-      break;
-    }
-  }
-}
+// Method 1:
 
-int main() {
-  int testCases;
-  cin >> testCases;
+// void gcdOrHcf(int n1, int n2) {
+//   for (int i = min(n1, n2); i >= 1; i--) {
+//     if (n1 % i == 0 && n2 % i == 0) {
+//       cout << i;
+//       break;
+//     }
+//   }
+// }
 
-  for (int i = 0; i < testCases; i++) {
-    int n1, n2;
-    cin >> n1;
-    cin >> n2;
+// int main() {
+//   int testCases;
+//   cin >> testCases;
 
-    gcdOrHcf(n1, n2);
-    cout << endl;
-  }
+//   for (int i = 0; i < testCases; i++) {
+//     int n1, n2;
+//     cin >> n1;
+//     cin >> n2;
 
-  return 0;
-}
+//     gcdOrHcf(n1, n2);
+//     cout << endl;
+//   }
+
+//   return 0;
+// }
 
 /*
 
@@ -51,3 +53,57 @@ Space Complexity :: O(1):
 
 
 */
+
+// Method 2:
+// int gcdOrHcf(int a, int b) {
+//   while (a > 0 && b > 0) {
+//     if (a > b)
+//       a = a % b;
+//     else
+//       b = b % a;
+//   }
+//   if (a == 0)
+//     return b;
+//   return a;
+// }
+
+// int main() {
+//   int testCases;
+//   cin >> testCases;
+
+//   for (int i = 0; i < testCases; i++) {
+//     int n1, n2;
+//     cin >> n1;
+//     cin >> n2;
+
+//     int output = gcdOrHcf(n1, n2);
+//     cout << output << endl;
+//   }
+
+//   return 0;
+// }
+
+// Method 3:
+int gcdOrHcf(int a, int b) {
+  if (b == 0) {
+    return a;
+  }
+
+  return gcdOrHcf(b, a % b);
+}
+
+int main() {
+  int testCases;
+  cin >> testCases;
+
+  for (int i = 0; i < testCases; i++) {
+    int n1, n2;
+    cin >> n1;
+    cin >> n2;
+
+    int output = gcdOrHcf(n1, n2);
+    cout << output << endl;
+  }
+
+  return 0;
+}
