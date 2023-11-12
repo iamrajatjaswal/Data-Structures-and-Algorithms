@@ -17,3 +17,10 @@ int main() {
 
   return 0;
 }
+
+/*
+
+Time Complexity : O(N);
+Space Complexity : O(N);
+
+*/
