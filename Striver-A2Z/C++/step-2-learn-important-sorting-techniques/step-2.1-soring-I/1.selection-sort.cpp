@@ -37,3 +37,12 @@ int main() {
 
   return 0;
 }
+
+/*
+
+Time Complexity :
+Worst -> O(N^2)
+Average -> O(N^2)
+Best -> O(N^2)
+
+*/
