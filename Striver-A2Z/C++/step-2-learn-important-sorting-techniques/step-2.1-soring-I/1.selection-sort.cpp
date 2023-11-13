@@ -1,6 +1,12 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+/*
+
+In Selection sort we select the minimum element and move it to the starting index of the loop
+
+*/
+
 void selectionSort(int arr[], int n) {
   for (int i = 0; i <= n - 2; i++) {
     int mini = i;
