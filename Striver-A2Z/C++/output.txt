@@ -1,1 +1,2 @@
-52
+Second Largest is: 46
+Second Smallest is: 15
