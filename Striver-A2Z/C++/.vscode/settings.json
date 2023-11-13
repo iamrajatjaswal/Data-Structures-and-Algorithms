@@ -85,6 +85,19 @@
     "concepts": "cpp",
     "numeric": "cpp",
     "random": "cpp",
-    "algorithm": "cpp"
+    "algorithm": "cpp",
+    "any": "cpp",
+    "barrier": "cpp",
+    "charconv": "cpp",
+    "codecvt": "cpp",
+    "cuchar": "cpp",
+    "format": "cpp",
+    "latch": "cpp",
+    "numbers": "cpp",
+    "semaphore": "cpp",
+    "shared_mutex": "cpp",
+    "span": "cpp",
+    "coroutine": "cpp",
+    "ranges": "cpp"
   }
 }
