@@ -1,6 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+int hashh[10000000] = {0};
 int main() {
   int n;
   cin >> n;
@@ -10,9 +11,9 @@ int main() {
   }
 
   // precompute
-  int hash[13] = {0};
+  // int hash[13] = {0};
   for (int i = 0; i < n; i++) {
-    hash[arr[i]] += 1;
+    hashh[arr[i]] += 1;
   }
 
   int q;
@@ -21,7 +22,7 @@ int main() {
     int number;
     cin >> number;
     // fetch
-    cout << hash[number] << endl;
+    cout << hashh[number] << endl;
   }
 
   return 0;
