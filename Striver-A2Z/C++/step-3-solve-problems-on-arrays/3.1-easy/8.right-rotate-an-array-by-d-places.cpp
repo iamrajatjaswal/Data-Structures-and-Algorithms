@@ -7,32 +7,23 @@ Method: Brute
 TC: O(d) + O(n - d) + O(d) => O(n + d)
 SC: O(d) for extra space being used
 */
-void leftRotateArrayByDPlacesBrute(vector<int> &arr, int n, int d) {
+void rightRotateArrayByDPlacesBrute(vector<int> &arr, int n, int d) {
   d = d % n;
   int temp[d];
 
   // TC -> O(d)
-  for (int i = 0; i < d; i++) {
-    temp[i] = arr[i];
+  for (int i = n - d; i < n; i++) {
+    temp[i - (n - d)] = arr[i];
   }
 
   // TC -> O(n - d)
-  for (int i = d; i < n; i++) {
-    arr[i - d] = arr[i];
+  for (int i = n - 1; i >= d; i--) {
+    arr[i] = arr[i - d];
   }
-
-  /*
-  This is one way if you want to avoid doing mathematical calculation to find out j then initialize j = 0 and increment
-  int j = 0;
-  for (int i = n - d; i < n; i++) {
-    arr[i] = temp[j];
-    j++;
-  }
-  */
 
   // TC -> O(d)
-  for (int i = n - d; i < n; i++) {
-    arr[i] = temp[i - (n - d)];
+  for (int i = 0; i < d; i++) {
+    arr[i] = temp[i];
   }
 }
 
@@ -54,11 +45,11 @@ void Reverse(vector<int> &arr, int start, int end) {
 }
 
 // Function to rotate d elements to the left
-void leftRotateArrayByDPlacesOptimal(vector<int> &arr, int n, int d) {
-  // Reverse first d elements
-  Reverse(arr, 0, d - 1); // O(d)
-  // Reverse last n - d elements
-  Reverse(arr, d, n - 1); // O(n - d)
+void rightRotateArrayByDPlacesOptimal(vector<int> &arr, int n, int d) {
+  // Reverse last d elements
+  Reverse(arr, n - d, n - 1); // O(d)
+  // Reverse first n - d elements
+  Reverse(arr, 0, n - d - 1); // O(n - d)
   // Reverse whole array
   Reverse(arr, 0, n - 1); // O(n)
 }
@@ -72,8 +63,8 @@ int main() {
     cin >> arr[i];
   }
 
-  // leftRotateArrayByDPlacesBrute(arr, n, d);
-  leftRotateArrayByDPlacesOptimal(arr, n, d);
+  // rightRotateArrayByDPlacesBrute(arr, n, d);
+  rightRotateArrayByDPlacesOptimal(arr, n, d);
 
   for (auto it : arr) {
     cout << it << endl;
