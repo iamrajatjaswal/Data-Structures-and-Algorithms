@@ -11,6 +11,15 @@ Do not allocate extra space for another array. You need to do this by modifying 
 
 */
 
+
+/*
+
+Optimal Solution
+Method: Two Pointers
+Time Complexity: O(N)
+Space Complexity: O(1)
+
+*/
 int removeDuplicates(vector<int> &arr, int n) {
   int i = 0;
   for (int j = 1; j < n; j++) {
