@@ -36,6 +36,33 @@ void leftRotateArrayByDPlacesBrute(vector<int> &arr, int n, int d) {
   }
 }
 
+/*
+Optimal Solution:
+Approach: Using "Reversal Algorithm"
+TC: O(d) + O(n - d) + O(n) => O(2n)
+SC: O(1) no extra space being used
+*/
+// Function to reverse the array
+void Reverse(vector<int> &arr, int start, int end) {
+  while (start <= end) {
+    int temp = arr[start];
+    arr[start] = arr[end];
+    arr[end] = temp;
+    start++;
+    end--;
+  }
+}
+
+// Function to rotate d elements to the left
+void leftRotateArrayByDPlacesOptimal(vector<int> &arr, int n, int d) {
+  // Reverse first d elements
+  Reverse(arr, 0, d - 1); // O(d)
+  // Reverse last n - d elements
+  Reverse(arr, d, n - 1); // O(n - d)
+  // Reverse whole array
+  Reverse(arr, 0, n - 1); // O(n)
+}
+
 int main() {
   int n, d;
   cin >> n >> d;
@@ -45,7 +72,8 @@ int main() {
     cin >> arr[i];
   }
 
-  leftRotateArrayByDPlacesBrute(arr, n, d);
+  // leftRotateArrayByDPlacesBrute(arr, n, d);
+  leftRotateArrayByDPlacesOptimal(arr, n, d);
 
   for (auto it : arr) {
     cout << it << endl;
