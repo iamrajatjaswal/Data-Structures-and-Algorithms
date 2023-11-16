@@ -53,12 +53,12 @@ Explanation: "101" does not appear in nums. "000", "010", "100", and "110" would
  * @param {string[]} nums
  * @return {string}
  */
-var findDifferentBinaryString = function(nums) {
-    let result = "";
+var findDifferentBinaryString = function (nums) {
+  let result = "";
 
-        for (let i = 0; i < nums.length; ++i) {
-            result += (nums[i][i] === '0' ? '1' : '0');
-        }
+  for (let i = 0; i < nums.length; ++i) {
+    result += nums[i][i] === "0" ? "1" : "0";
+  }
 
-        return result;
+  return result;
 };
