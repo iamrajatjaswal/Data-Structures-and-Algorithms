@@ -22,6 +22,8 @@ int missingNumberBrute(vector<int> arr, int N, int n) {
       return i;
     }
   }
+
+  return 0;
 }
 
 int main() {
