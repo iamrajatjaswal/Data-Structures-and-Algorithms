@@ -70,8 +70,9 @@ int missingNumberOptimalWithSumApproach(vector<int> arr, int N, int n) {
 
 /*
 Method: Optimal
-Approach: XOR Approach
-
+Approach: XOR Approach : such that we calculating the XOR of all the natural numbers i.e. XOR1 and then calculating the XOR of the all the numbers in the array i.e. XOR2 and then finally we will take the XOR of XOR1 & XOR2 which will give us the misisng number
+TC -> O(N) : it is better than the Sum method optimal approach because if the input size 10^5 then by sum approach the number will be (N(N+1)/2) which will be 10^10 number which will not exist inside a int number and a larger number will be required and slightly more storage is required than the XOR approach because in XOR approach the number will not exceed the number itself i.e. 10^5
+SC -> O(1)
 */
 int missingNumberOptimalWithXORApproach(vector<int> arr, int N, int n) {
   int xor1 = 0;
