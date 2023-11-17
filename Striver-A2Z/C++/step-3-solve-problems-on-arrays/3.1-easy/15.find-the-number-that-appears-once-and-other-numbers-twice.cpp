@@ -26,11 +26,11 @@ int getSingleElementBrute(vector<int> &arr) {
 }
 
 /*
-Method: Better
+Method: Better with array datastructure
 TC -> O(3N)
 SC -> O(max element)
 */
-int getSingleElementBetter(vector<int> &arr) {
+int getSingleElementBetterWithArray(vector<int> &arr) {
   int maximum = arr[0];
 
   for (int i = 0; i < arr.size(); i++) {
@@ -54,6 +54,41 @@ int getSingleElementBetter(vector<int> &arr) {
   return 0;
 }
 
+/*
+Method: Better with Map datastructure
+TC -> O(N * log(N/2 + 1)) + O(N/2 + 1) where (N/2 + 1) is the size of the map
+SC -> O(N/2 + 1)
+*/
+int getSingleElementBetterWithMap(vector<int> &arr) {
+  map<long long, int> mpp;
+
+  for (int i = 0; i < arr.size(); i++) {
+    mpp[arr[i]]++;
+  }
+
+  for (auto it : mpp) {
+    if (it.second == 1)
+      return it.first;
+  }
+
+  return 0;
+}
+
+/*
+Method: Optimal
+TC -> O(N)
+SC -> O(1)
+*/
+int getSingleElementOptimal(vector<int> &arr) {
+  int xorr = 0;
+
+  for (int i = 0; i < arr.size(); i++) {
+    xorr ^= arr[i];
+  }
+
+  return xorr;
+}
+
 int main() {
   /*
     Inputs:
@@ -69,7 +104,9 @@ int main() {
   }
 
   // int output = getSingleElementBrute(arr);
-  int output = getSingleElementBetter(arr);
+  // int output = getSingleElementBetterWithArray(arr);
+  // int output = getSingleElementBetterWithMap(arr);
+  int output = getSingleElementOptimal(arr);
   cout << output;
 
   return 0;
