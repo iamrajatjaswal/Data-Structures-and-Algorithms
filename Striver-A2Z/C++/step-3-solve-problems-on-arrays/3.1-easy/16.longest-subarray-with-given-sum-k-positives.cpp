@@ -80,6 +80,36 @@ int getLongestSubarrayBetterUsingHashMap(vector<int> &arr, long long k) {
   return maxLength;
 }
 
+/*
+Method: Optimal with Two Pointers approach
+TC -> O(2N)
+SC -> O(1)
+*/
+int getLongestSubarrayOptimalUsingTwoPointers(vector<int> &arr, long long k) {
+  int left = 0, right = 0;
+  long long sum = arr[0];
+  int maxLength = 0;
+  int n = arr.size();
+
+  while (right < n) {
+    while (left <= right && sum > k) {
+      sum -= arr[left];
+      left++;
+    }
+
+    if (sum == k) {
+      maxLength = max(maxLength, right - left + 1);
+    }
+
+    right++;
+    if (right < n) {
+      sum += arr[right];
+    }
+  }
+
+  return maxLength;
+}
+
 int main() {
   /*
   Inputs:
@@ -96,7 +126,8 @@ int main() {
 
   // int output = getLongestSubarrayBrute(arr, k);
   // int output = getLongestSubarrayBruteUsingTwoLoops(arr, k);
-  int output = getLongestSubarrayBetterUsingHashMap(arr, k);
+  // int output = getLongestSubarrayBetterUsingHashMap(arr, k);
+  int output = getLongestSubarrayOptimalUsingTwoPointers(arr, k);
   cout << output;
 
   return 0;
