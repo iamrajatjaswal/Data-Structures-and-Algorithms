@@ -46,14 +46,14 @@ vector<int> twoSumBrute2(vector<int> &nums, int target) {
 }
 
 /*
-Method: Better
+Method: Optimal if we are asked to give the indexes of the array elements
 TC -> O(N) if we use unordered map & O(N * logN) if we use map
 
 NOTE: In the worst case(which rarely happens), the unordered_map takes O(N) to find an element. In that case, the time complexity will be O(N2). If we use map instead of unordered_map, the time complexity will be O(N* logN) as the map data structure takes logN time to find an element.
 
 SC -> O(N)
 */
-vector<int> twoSumBetter(vector<int> &nums, int target) {
+vector<int> twoSumOptimalHashing(vector<int> &nums, int target) {
   int n = nums.size();
   map<int, int> mpp;
 
@@ -65,6 +65,31 @@ vector<int> twoSumBetter(vector<int> &nums, int target) {
     }
 
     mpp[num] = i;
+  }
+
+  return {-1, -1};
+}
+
+/*
+Method: Optimal (maybe slightly better if don't have to return the indexes of the numbers in the array and if we are asked to return the numbers only)
+TC -> O(N * logN)
+SC -> O(1)
+*/
+vector<int> twoSumOptimalTwoPointers(vector<int> &nums, int target) {
+  int n = nums.size();
+  int left = 0, right = n - 1;
+
+  sort(nums.begin(), nums.end());
+  while (left < right) {
+    int sum = nums[left] + nums[right];
+
+    if (sum == target) {
+      return {nums[left], nums[right]};
+    } else if (sum > target) {
+      right--;
+    } else {
+      left++;
+    }
   }
 
   return {-1, -1};
@@ -86,7 +111,8 @@ int main() {
 
   // vector<int> output = twoSumBrute(nums, target);
   // vector<int> output = twoSumBrute2(nums, target);
-  vector<int> output = twoSumBetter(nums, target);
+  // vector<int> output = twoSumOptimalHashing(nums, target);
+  vector<int> output = twoSumOptimalTwoPointers(nums, target);
 
   for (auto it : output) {
     cout << it << " ";
