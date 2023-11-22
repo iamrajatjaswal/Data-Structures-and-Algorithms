@@ -28,10 +28,35 @@ vector<int> rearrangeArrayBrute(vector<int> &nums) {
   return nums;
 }
 
+/*
+Method: Optimal
+TC -> O(N)
+SC -> O(N)
+*/
+vector<int> rearrangeArrayOptimal(vector<int> &nums) {
+  int n = nums.size();
+  vector<int> result(n);
+
+  int positiveIndex = 0, negativeIndex = 1;
+
+  for (int i = 0; i < n; i++) {
+    if (nums[i] < 0) {
+      result[negativeIndex] = nums[i];
+      negativeIndex += 2;
+    } else {
+      result[positiveIndex] = nums[i];
+      positiveIndex += 2;
+    }
+  }
+
+  return result;
+}
+
 int main() {
   vector<int> arr = {3, 1, -2, -5, 2, -4};
 
-  vector<int> output = rearrangeArrayBrute(arr);
+  // vector<int> output = rearrangeArrayBrute(arr);
+  vector<int> output = rearrangeArrayOptimal(arr);
 
   for (auto it : output) {
     cout << it << " ";
