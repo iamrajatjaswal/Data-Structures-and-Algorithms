@@ -88,6 +88,12 @@ void recurPermute(int index, vector<int> &nums, vector<vector<int>> &permutation
   }
 }
 
+/*
+Method: Better
+Approach Recursion
+TC -> O(N! * N)
+SC -> O(1)
+*/
 vector<int> nextGreaterPermutationBetter(vector<int> &nums) {
   vector<int> sortedNums = nums;
   sort(sortedNums.begin(), sortedNums.end());
