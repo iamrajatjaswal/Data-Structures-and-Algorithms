@@ -4,10 +4,9 @@ using namespace std;
 /*
 Method: Brute
 Approach Recursion
-TC -> O(N + N/2)
+TC -> O(N! * N)
 SC -> O(N)
 */
-
 void recursivePermutations(vector<int> &nums, vector<int> &ds, int freq[], vector<vector<int>> &ans) {
   if (nums.size() == ds.size()) {
     ans.push_back(ds);
@@ -74,12 +73,61 @@ vector<int> nextGreaterPermutationBrute(vector<int> &nums) {
   return permutations[0];
 }
 
+void recurPermute(int index, vector<int> &nums, vector<vector<int>> &permutations) {
+  if (index == nums.size()) {
+    permutations.push_back(nums);
+    return;
+  }
+
+  for (int i = index; i < nums.size(); i++) {
+    swap(nums[index], nums[i]);
+
+    recurPermute(index + 1, nums, permutations);
+
+    swap(nums[index], nums[i]);
+  }
+}
+
+vector<int> nextGreaterPermutationBetter(vector<int> &nums) {
+  vector<int> sortedNums = nums;
+  sort(sortedNums.begin(), sortedNums.end());
+
+  vector<vector<int>> permutations;
+  recurPermute(0, sortedNums, permutations);
+
+  // To print out all the permutations
+  for (auto &permutation : permutations) {
+    for (auto &num : permutation) {
+      cout << num << " ";
+    }
+    cout << endl;
+  }
+  cout << endl;
+
+  // linear search for index in permute
+  int index = -1;
+  for (int i = 0; i < permutations.size(); i++) {
+    if (permutations[i] == nums) {
+      index = i;
+      break;
+    }
+  }
+
+  if (index != -1 && index < permutations.size()) {
+    return permutations[index + 1];
+  }
+
+  return permutations[0];
+}
+
 int main() {
-  vector<int> arr = {2, 3, 1};
+  vector<int> arr = {2, 1, 3};
+  // vector<int> arr = {2, 3, 1};
   // vector<int> arr = {1, 2, 3};
   // vector<int> arr = {2, 1, 5, 4, 3, 0, 0};
 
-  vector<int> output = nextGreaterPermutationBrute(arr);
+  // vector<int> output = nextGreaterPermutationBrute(arr);
+  vector<int> output = nextGreaterPermutationBetter(arr);
 
   for (auto &it : output) {
     cout << it << " ";
