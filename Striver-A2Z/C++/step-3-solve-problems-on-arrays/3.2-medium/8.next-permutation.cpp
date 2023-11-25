@@ -100,6 +100,7 @@ vector<int> nextGreaterPermutationBetter(vector<int> &nums) {
 
   vector<vector<int>> permutations;
   recurPermute(0, sortedNums, permutations);
+  // recurPermute(0, nums, permutations);
 
   // To print out all the permutations
   for (auto &permutation : permutations) {
@@ -126,14 +127,26 @@ vector<int> nextGreaterPermutationBetter(vector<int> &nums) {
   return permutations[0];
 }
 
+/*
+Method: Optimal
+TC -> O(N! * N)
+SC -> O(1)
+*/
+vector<int> nextGreaterPermutationOptimal(vector<int> &nums) {
+  int index = -1;
+  return {1,2,3};
+}
+
 int main() {
-  vector<int> arr = {2, 1, 3};
+  vector<int> arr = {3, 2, 1};
+  // vector<int> arr = {2, 1, 3};
   // vector<int> arr = {2, 3, 1};
   // vector<int> arr = {1, 2, 3};
   // vector<int> arr = {2, 1, 5, 4, 3, 0, 0};
 
   // vector<int> output = nextGreaterPermutationBrute(arr);
   vector<int> output = nextGreaterPermutationBetter(arr);
+  // vector<int> output = nextGreaterPermutationOptimal(arr);
 
   for (auto &it : output) {
     cout << it << " ";
