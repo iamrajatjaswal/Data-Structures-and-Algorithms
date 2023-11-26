@@ -39,25 +39,21 @@ vector<vector<int>> getAllPermutations(vector<int> &nums) {
 }
 
 vector<int> nextGreaterPermutationBrute(vector<int> &nums) {
-  // sorting the array to get the correct order of permutations
-  vector<int> sortedNums = nums;
-  sort(sortedNums.begin(), sortedNums.end());
-  vector<vector<int>> permutations = getAllPermutations(sortedNums);
-
-  // vector<vector<int>> permutations = getAllPermutations(nums);
+  vector<vector<int>> permutations = getAllPermutations(nums);
+  sort(permutations.begin(), permutations.end());
 
   // To print out all the permutations
-  for (auto &permutation : permutations) {
-    for (auto &num : permutation) {
-      cout << num << " ";
-    }
-    cout << endl;
-  }
-  cout << endl;
+  // for (auto &permutation : permutations) {
+  //   for (auto &num : permutation) {
+  //     cout << num << " ";
+  //   }
+  //   cout << endl;
+  // }
+  // cout << endl;
 
   // Linear search for the index of nums in permutations
   int index = -1;
-  for (int i = 0; i < permutations.size(); i++) {
+  for (int i = permutations.size(); i >= 0; i--) {
     if (permutations[i] == nums) {
       index = i;
       break;
@@ -74,7 +70,7 @@ vector<int> nextGreaterPermutationBrute(vector<int> &nums) {
 }
 
 void recurPermute(int index, vector<int> &nums, vector<vector<int>> &permutations) {
-  if (index == nums.size()) {
+  if (index == nums.size() - 1) {
     permutations.push_back(nums);
     return;
   }
@@ -95,33 +91,31 @@ TC -> O(N! * N)
 SC -> O(1)
 */
 vector<int> nextGreaterPermutationBetter(vector<int> &nums) {
-  vector<int> sortedNums = nums;
-  sort(sortedNums.begin(), sortedNums.end());
-
   vector<vector<int>> permutations;
-  recurPermute(0, sortedNums, permutations);
-  // recurPermute(0, nums, permutations);
+  recurPermute(0, nums, permutations);
 
-  // To print out all the permutations
-  for (auto &permutation : permutations) {
-    for (auto &num : permutation) {
-      cout << num << " ";
-    }
-    cout << endl;
-  }
-  cout << endl;
+  sort(permutations.begin(), permutations.end());
+
+  // // To print out all the permutations
+  // for (auto &permutation : permutations) {
+  //   for (auto &num : permutation) {
+  //     cout << num << " ";
+  //   }
+  //   cout << endl;
+  // }
+  // cout << endl;
 
   // linear search for index in permute
   int index = -1;
-  for (int i = 0; i < permutations.size(); i++) {
+  for (int i = permutations.size(); i >= 0; i--) {
     if (permutations[i] == nums) {
-      index = i;
+      index = i + 1;
       break;
     }
   }
 
   if (index != -1 && index < permutations.size()) {
-    return permutations[index + 1];
+    return permutations[index];
   }
 
   return permutations[0];
@@ -170,15 +164,16 @@ vector<int> nextGreaterPermutationOptimal(vector<int> &nums) {
 }
 
 int main() {
-  // vector<int> arr = {3, 2, 1}; // 1 2 3 
+  // vector<int> arr = {3, 2, 1}; // 1 2 3
   // vector<int> arr = {2, 1, 3};
   // vector<int> arr = {2, 3, 1};
+  // vector<int> arr = {1, 3, 2};
   // vector<int> arr = {1, 2, 3};
-  vector<int> arr = {2, 1, 5, 4, 3, 0, 0}; // 2 3 0 0 1 4 5 
+  vector<int> arr = {2, 1, 5, 4, 3, 0, 0}; // 2 3 0 0 1 4 5
 
-  // vector<int> output = nextGreaterPermutationBrute(arr);
+  vector<int> output = nextGreaterPermutationBrute(arr);
   // vector<int> output = nextGreaterPermutationBetter(arr);
-  vector<int> output = nextGreaterPermutationOptimal(arr);
+  // vector<int> output = nextGreaterPermutationOptimal(arr);
 
   for (auto &it : output) {
     cout << it << " ";
