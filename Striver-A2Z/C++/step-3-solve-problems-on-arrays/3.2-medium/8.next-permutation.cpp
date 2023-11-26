@@ -129,24 +129,56 @@ vector<int> nextGreaterPermutationBetter(vector<int> &nums) {
 
 /*
 Method: Optimal
-TC -> O(N! * N)
+TC -> O(3 * N) at the worst case
 SC -> O(1)
 */
 vector<int> nextGreaterPermutationOptimal(vector<int> &nums) {
+  int n = nums.size();
   int index = -1;
-  return {1,2,3};
+
+  for (int i = n - 2; i >= 0; i--) {
+    if (nums[i] < nums[i + 1]) {
+      index = i;
+      break;
+    }
+  }
+
+  if (index == -1) {
+    for (int i = 0; i < n / 2; i++) {
+      swap(nums[i], nums[n - i - 1]);
+    }
+
+    return nums;
+  }
+
+  for (int i = n - 1; i > index; i--) {
+    if (nums[i] > nums[index]) {
+      swap(nums[i], nums[index]);
+      break;
+    }
+  }
+
+  int left = index + 1;
+  int right = n - 1;
+  while (left < right) {
+    swap(nums[left], nums[right]);
+    left++;
+    right--;
+  }
+
+  return nums;
 }
 
 int main() {
-  vector<int> arr = {3, 2, 1};
+  // vector<int> arr = {3, 2, 1}; // 1 2 3 
   // vector<int> arr = {2, 1, 3};
   // vector<int> arr = {2, 3, 1};
   // vector<int> arr = {1, 2, 3};
-  // vector<int> arr = {2, 1, 5, 4, 3, 0, 0};
+  vector<int> arr = {2, 1, 5, 4, 3, 0, 0}; // 2 3 0 0 1 4 5 
 
   // vector<int> output = nextGreaterPermutationBrute(arr);
-  vector<int> output = nextGreaterPermutationBetter(arr);
-  // vector<int> output = nextGreaterPermutationOptimal(arr);
+  // vector<int> output = nextGreaterPermutationBetter(arr);
+  vector<int> output = nextGreaterPermutationOptimal(arr);
 
   for (auto &it : output) {
     cout << it << " ";
