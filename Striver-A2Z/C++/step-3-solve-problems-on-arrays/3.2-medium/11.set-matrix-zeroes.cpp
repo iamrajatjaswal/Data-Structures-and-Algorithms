@@ -4,13 +4,17 @@ using namespace std;
 void markRow(vector<vector<int>> &matrix, int m, int i) {
   // set all non zero elements as -1 in the row i
   for (int j = 0; j < m; j++) {
-    matrix[i][j] = -1;
+    if (matrix[i][j] != 0) {
+      matrix[i][j] = -1;
+    }
   }
 }
 
 void markColumn(vector<vector<int>> &matrix, int n, int j) {
   for (int i = 0; i < n; i++) {
-    matrix[i][j] = -1;
+    if (matrix[i][j] != 0) {
+      matrix[i][j] = -1;
+    }
   }
 }
 
@@ -56,10 +60,64 @@ vector<vector<int>> setMatrixZeroesBrute(vector<vector<int>> &matrix) {
   return matrix;
 }
 
+/*
+Method: Better
+*/
+vector<vector<int>> setMatrixZeroesBetter(vector<vector<int>> &matrix) {
+  int n = matrix.size();
+  int m = matrix[0].size();
+
+  int row[n];
+  int col[m];
+  // marking all the elements in the row array as 0
+  for (int i = 0; i < n; i++) {
+    row[i] = 0;
+  }
+  // marking all the elements in the col array as 0
+  for (int j = 0; j < m; j++) {
+    col[j] = 0;
+  }
+
+  // iterating over the matrix
+  for (int i = 0; i < n; i++) {
+    for (int j = 0; j < m; j++) {
+      if (matrix[i][j] == 0) {
+        // mark ith index in the row with 1
+        row[i] = 1;
+        // mark jth index in the col with 1
+        col[j] = 1;
+      }
+    }
+  }
+
+  for (int i = 0; i < n; i++) {
+    cout << row[i] << " ";
+  }
+  cout << endl;
+
+  for (int i = 0; i < m; i++) {
+    cout << col[i] << " ";
+  }
+  cout << endl;
+
+  // Finally, mark all (i, j) in the matrix with 1
+  // if row[i] or col[j] is marked with 1
+  for (int i = 0; i < n; i++) {
+    for (int j = 0; j < m; j++) {
+      if (row[i] || col[j]) {
+        matrix[i][j] = 0;
+      }
+    }
+  }
+
+  return matrix;
+}
+
 int main() {
   vector<vector<int>> matrix = {{1, 1, 1, 1}, {1, 0, 1, 1}, {1, 1, 0, 1}, {1, 0, 0, 1}};
 
-  vector<vector<int>> output = setMatrixZeroesBrute(matrix);
+  // vector<vector<int>> output = setMatrixZeroesBrute(matrix);
+  vector<vector<int>> output = setMatrixZeroesBetter(matrix);
 
   cout << "The final matrix is: " << endl;
   for (auto it : output) {
