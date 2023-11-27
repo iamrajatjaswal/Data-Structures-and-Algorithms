@@ -129,8 +129,8 @@ vector<vector<int>> setMatrixZeroesOptimal(vector<vector<int>> &matrix) {
   int n = matrix.size();
   int m = matrix[0].size();
 
-  // row array :: matrix[0][i]
-  // col array :: matrix[i][0]
+  // int row[n] = {0}; -> array :: matrix[0][...]
+  // int col[m] = {0}; -> array :: matrix[...][0]
   int col0 = 1;
 
   // Original Matrix
