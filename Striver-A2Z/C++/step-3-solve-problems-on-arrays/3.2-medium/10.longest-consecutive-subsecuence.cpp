@@ -12,6 +12,11 @@ bool linearSearch(vector<int> &nums, int num) {
   return false;
 }
 
+/*
+Method: Brute
+TC -> O(N^2) : We are using nested loops each running for approximately N times.
+SC -> O(1) : as we are not using any extra space to solve this problem
+*/
 int longestConsecutiveSubsecuenceBrute(vector<int> &nums) {
   int n = nums.size(); // size of the array
   int longest = 1;
