@@ -1,1 +1,1 @@
-6 12 22 
+The longest consecutive sequence is: 4
