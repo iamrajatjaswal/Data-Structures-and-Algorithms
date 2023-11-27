@@ -39,9 +39,36 @@ int longestConsecutiveSubsecuenceBrute(vector<int> &nums) {
   return longest;
 }
 
+int longestConsecutiveSubsecuenceBetter(vector<int> &nums) {
+  int n = nums.size();
+  if (n == 0)
+    return 0;
+
+  // sort the array
+  sort(nums.begin(), nums.end());
+  int longest = 1;
+  int count = 1;
+  int lastSmaller = INT_MIN;
+
+  for (int i = 0; i < n; i++) {
+    if (nums[i] - 1 == lastSmaller) {
+      lastSmaller = nums[i];
+      count++;
+    } else if (nums[i] != lastSmaller) {
+      count = 1;
+      lastSmaller = nums[i];
+    }
+
+    longest = max(longest, count);
+  }
+
+  return longest;
+}
+
 int main() {
   vector<int> arr = {102, 4, 100, 1, 101, 3, 2, 1, 1};
-  int output = longestConsecutiveSubsecuenceBrute(arr);
+  // int output = longestConsecutiveSubsecuenceBrute(arr);
+  int output = longestConsecutiveSubsecuenceBetter(arr);
 
   cout << "The longest consecutive sequence is: " << output;
 
