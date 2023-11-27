@@ -1,1 +1,5 @@
-The longest consecutive sequence is: 4
+The final matrix is: 
+1 0 0 1 
+0 0 0 0 
+0 0 0 0 
+1 0 0 1 
