@@ -39,6 +39,11 @@ int longestConsecutiveSubsecuenceBrute(vector<int> &nums) {
   return longest;
 }
 
+/*
+Method: Better
+TC -> O(NlogN) + O(N) : O(NlogN) for sorting the array. To find the longest sequence, we are using a loop that results in O(N).
+SC -> O(1) : As we are not using any extra space to solve this problem
+*/
 int longestConsecutiveSubsecuenceBetter(vector<int> &nums) {
   int n = nums.size();
   if (n == 0)
@@ -65,10 +70,21 @@ int longestConsecutiveSubsecuenceBetter(vector<int> &nums) {
   return longest;
 }
 
+int longestConsecutiveSubsecuenceOptimal(vector<int> &nums) {
+  int n = nums.size();
+  if (n == 0)
+    return 0;
+
+  int longest = 1;
+
+  return longest;
+}
+
 int main() {
   vector<int> arr = {102, 4, 100, 1, 101, 3, 2, 1, 1};
   // int output = longestConsecutiveSubsecuenceBrute(arr);
-  int output = longestConsecutiveSubsecuenceBetter(arr);
+  // int output = longestConsecutiveSubsecuenceBetter(arr);
+  int output = longestConsecutiveSubsecuenceOptimal(arr);
 
   cout << "The longest consecutive sequence is: " << output;
 
