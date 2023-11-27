@@ -1,5 +1,4 @@
-The final matrix is: 
-0 0 0 1 
-0 0 0 0 
-0 0 0 0 
-0 0 0 0 
+Rotated Image:
+7 4 1 
+8 5 2 
+9 6 3 
