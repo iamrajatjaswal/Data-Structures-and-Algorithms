@@ -49,16 +49,16 @@ Explanation: "35427" is already an odd number.
 */
 
 /**
- * @param {number} n
- * @return {number}
+ * @param {string} num
+ * @return {string}
  */
-var totalMoney = function(n) {
-  const week_count = Math.floor(n / 7);
-  const remaining_days = n % 7;
-  
-  let total = ((week_count * (week_count - 1)) / 2) * 7; 
-  total += week_count * 28;
-  total += ((remaining_days * (remaining_days + 1)) / 2) + (week_count * remaining_days);
-  
-  return total;
+var largestOddNumber = function(num) {
+  if (parseInt(num.slice(-1)) % 2 === 1) return num;
+  let i = num.length - 1;
+  while (i >= 0) {
+      const n = parseInt(num[i]);
+      if (n % 2 === 1) return num.slice(0, i + 1);
+      i--;
+  }
+  return "";
 };
