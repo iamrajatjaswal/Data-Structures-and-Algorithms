@@ -1,73 +1,99 @@
 /*
 
 Title: 1913. Maximum Product Difference Between Two Pairs
-URL: https://leetcode.com/problems/maximum-product-difference-between-two-pairs/
+URL: https://leetcode.com/problems/image-smoother/
 Difficulty: Easy
-Topics: Array, Sorting
+Topics: Array, Matrix
 
 
 **Problem**
 
-The **product difference** between two pairs `(a, b)` and `(c, d)` is defined as `(a * b) - (c * d)`.
+An **image smoother** is a filter of the size `3 x 3` that can be applied to each cell of an image by rounding down the average of the cell and the eight surrounding cells (i.e., the average of the nine cells in the blue smoother). If one or more of the surrounding cells of a cell is not present, we do not consider it in the average (i.e., the average of the four cells in the red smoother).
 
-- For example, the product difference between `(5, 6)` and `(2, 7)` is `(5 * 6) - (2 * 7) = 16`.
+!https://assets.leetcode.com/uploads/2021/05/03/smoother-grid.jpg
 
-Given an integer array `nums`, choose four **distinct** indices `w`, `x`, `y`, and `z` such that the **product difference** between pairs `(nums[w], nums[x])` and `(nums[y], nums[z])` is **maximized**.
-
-Return *the **maximum** such product difference*.
+Given an `m x n` integer matrix `img` representing the grayscale of an image, return *the image after applying the smoother on each cell of it*.
 
 **Example 1:**
 
+!https://assets.leetcode.com/uploads/2021/05/03/smooth-grid.jpg
+
 ```
-Input: nums = [5,6,2,7,4]
-Output: 34
-Explanation: We can choose indices 1 and 3 for the first pair (6, 7) and indices 2 and 4 for the second pair (2, 4).
-The product difference is (6 * 7) - (2 * 4) = 34.
+Input: img = [[1,1,1],[1,0,1],[1,1,1]]
+Output: [[0,0,0],[0,0,0],[0,0,0]]
+Explanation:
+For the points (0,0), (0,2), (2,0), (2,2): floor(3/4) = floor(0.75) = 0
+For the points (0,1), (1,0), (1,2), (2,1): floor(5/6) = floor(0.83333333) = 0
+For the point (1,1): floor(8/9) = floor(0.88888889) = 0
 
 ```
 
 **Example 2:**
 
+!https://assets.leetcode.com/uploads/2021/05/03/smooth2-grid.jpg
+
 ```
-Input: nums = [4,2,5,9,7,4,8]
-Output: 64
-Explanation: We can choose indices 3 and 6 for the first pair (9, 8) and indices 1 and 5 for the second pair (2, 4).
-The product difference is (9 * 8) - (2 * 4) = 64.
+Input: img = [[100,200,100],[200,50,200],[100,200,100]]
+Output: [[137,141,137],[141,138,141],[137,141,137]]
+Explanation:
+For the points (0,0), (0,2), (2,0), (2,2): floor((100+200+200+50)/4) = floor(137.5) = 137
+For the points (0,1), (1,0), (1,2), (2,1): floor((200+200+50+200+100+100)/6) = floor(141.666667) = 141
+For the point (1,1): floor((50+200+200+200+200+100+100+100+100)/9) = floor(138.888889) = 138
 
 ```
 
 **Constraints:**
 
-- `4 <= nums.length <= 104`
-- `1 <= nums[i] <= 104`
+- `m == img.length`
+- `n == img[i].length`
+- `1 <= m, n <= 200`
+- `0 <= img[i][j] <= 255`
 
 
 **Solution**
 */
 
 /**
- * @param {number[]} nums
+ * @param {number[][]} img
+ * @param {number} x
+ * @param {number} y
  * @return {number}
  */
-var maxProductDifference = function(nums) {
-    let largest = 0, secondLargest = 0;
-    let smallest = Number.MAX_SAFE_INTEGER, secondSmallest = Number.MAX_SAFE_INTEGER;
+var smoothen = function (img, x, y) {
+  const m = img.length;
+  const n = img[0].length;
+  let sum = 0;
+  let count = 0;
 
-    for (const n of nums) {
-        if (n < smallest) {
-            secondSmallest = smallest;
-            smallest = n;
-        } else if (n < secondSmallest) {
-            secondSmallest = n;
-        }
+  for (let i = -1; i <= 1; i++) {
+    for (let j = -1; j <= 1; j++) {
+      const nx = x + i;
+      const ny = y + j;
 
-        if (n > largest) {
-            secondLargest = largest;
-            largest = n;
-        } else if (n > secondLargest) {
-            secondLargest = n;
-        }
+      if (0 <= nx && nx < m && 0 <= ny && ny < n) {
+        sum += img[nx][ny];
+        count++;
+      }
     }
+  }
 
-    return (largest * secondLargest) - (smallest * secondSmallest);
+  return Math.floor(sum / count);
+};
+
+/**
+ * @param {number[][]} img
+ * @return {number[][]}
+ */
+var imageSmoother = function (img) {
+  const m = img.length;
+  const n = img[0].length;
+  const res = new Array(m).fill(0).map(() => new Array(n).fill(0));
+
+  for (let i = 0; i < m; i++) {
+    for (let j = 0; j < n; j++) {
+      res[i][j] = smoothen(img, i, j);
+    }
+  }
+
+  return res;
 };
