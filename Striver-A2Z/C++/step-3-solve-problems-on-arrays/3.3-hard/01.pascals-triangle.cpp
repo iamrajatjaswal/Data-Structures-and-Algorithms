@@ -120,6 +120,65 @@ void variation2() {
   findNthRowInPascalTriangleOptimal(n);
 }
 
+vector<vector<int>> printPascalTriangleBrute(int n) {
+  vector<vector<int>> result;
+
+  // Store the entire pascal's triangle:
+  for (int row = 1; row <= n; row++) {
+    vector<int> tempList; // temporary list
+    for (int col = 1; col <= row; col++) {
+      tempList.push_back(nCr(row - 1, col - 1));
+    }
+
+    result.push_back(tempList);
+  }
+
+  return result;
+}
+
+vector<int> generateRow(int row) {
+  long long ans = 1;
+  vector<int> ansRow;
+  ansRow.push_back(1); // inserting the 1st element
+
+  for (int col = 1; col < row; col++) {
+    ans *= (row - col);
+    ans /= col;
+    ansRow.push_back(ans);
+  }
+
+  return ansRow;
+}
+
+vector<vector<int>> printPascalTriangleOptimal(int n) {
+  vector<vector<int>> result;
+
+  // Store the entire pascal's triangle:
+  for (int row = 1; row <= n; row++) {
+    result.push_back(generateRow(row));
+  }
+
+  return result;
+}
+
+/*
+  Variation3:
+  Print the entire Pascal's triangle, given the number of rows
+*/
+void variation3() {
+  int n = 5;
+
+  // vector<vector<int>> output = printPascalTriangleBrute(n);
+  vector<vector<int>> output = printPascalTriangleOptimal(n);
+
+  for (auto it : output) {
+    for (auto ele : it) {
+      cout << ele << " ";
+    }
+    cout << endl;
+  }
+}
+
 int main() {
   /*
   Variation 1:
@@ -130,7 +189,12 @@ int main() {
   Variation 2:
   Given the row number n. Print the n-th row of Pascal’s triangle.
   */
-  variation2();
+  // variation2();
+  /*
+  Variation 3:
+  Print the entire Pascal's triangle, given the number of rows
+  */
+  variation3();
 
   return 0;
 }
