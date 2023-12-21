@@ -77,11 +77,36 @@ void variation1() {
   cout << "The element is: " << element << endl;
 }
 
+/*
+Method: Brute
+TC -> O(n*r), where n is the given row number, and r is the column index which can vary from 0 to n-1.
+Reason: We are calculating the element for each column. Now, there are total n columns, and for each column, the calculation of the element takes O(r) time where r is the column index.
+SC -> O(1) as we are not using any extra space.
+*/
 void findNthRowInPascalTriangleBrute(int n) {
   // printing the entire row n
   for (int c = 1; c <= n; c++) {
     cout << nCr(n - 1, c - 1) << " ";
   }
+}
+
+/*
+Method: Optimal
+TC -> O(N) where N = given row number. Here we are using only a single loop.
+SC -> O(1) as we not using any extra space.
+*/
+void findNthRowInPascalTriangleOptimal(int n) {
+  long long ans = 1;
+  cout << ans << " "; // printing the 1st element
+
+  // printing rest of the part
+  for (int i = 1; i < n; i++) {
+    ans *= (n - i);
+    ans /= i;
+    cout << ans << " ";
+  }
+
+  cout << endl;
 }
 
 /*
@@ -91,7 +116,8 @@ void findNthRowInPascalTriangleBrute(int n) {
 void variation2() {
   int n = 5;
 
-  findNthRowInPascalTriangleBrute(n);
+  // findNthRowInPascalTriangleBrute(n);
+  findNthRowInPascalTriangleOptimal(n);
 }
 
 int main() {
