@@ -1,72 +1,82 @@
 /*
 
-Title: 1637. Widest Vertical Area Between Two Points Containing No Points
-URL: https://leetcode.com/problems/widest-vertical-area-between-two-points-containing-no-points/
-Difficulty: Medium
-Topics: Array, Sorting
+Title: 1422. Maximum Score After Splitting a String
+URL: https://leetcode.com/problems/maximum-score-after-splitting-a-string/
+Difficulty: Easy
+Topics: String
 
 
 **Problem**
 
-Given `n` `points` on a 2D plane where `points[i] = [xi, yi]`, Return *the **widest vertical area** between two points such that no points are inside the area.*
+Given a string `s` of zeros and ones, *return the maximum score after splitting the string into two **non-empty** substrings* (i.e. **left** substring and **right** substring).
 
-A **vertical area** is an area of fixed-width extending infinitely along the y-axis (i.e., infinite height). The **widest vertical area** is the one with the maximum width.
-
-Note that points **on the edge** of a vertical area **are not** considered included in the area.
+The score after splitting a string is the number of **zeros** in the **left** substring plus the number of **ones** in the **right** substring.
 
 **Example 1:**
 
-!https://assets.leetcode.com/uploads/2020/09/19/points3.png
-
 ```
-Input: points = [[8,7],[9,9],[7,4],[9,7]]
-Output: 1
-Explanation: Both the red and the blue area are optimal.
+Input: s = "011101"
+Output: 5
+Explanation:
+All possible ways of splitting s into two non-empty substrings are:
+left = "0" and right = "11101", score = 1 + 4 = 5
+left = "01" and right = "1101", score = 1 + 3 = 4
+left = "011" and right = "101", score = 1 + 2 = 3
+left = "0111" and right = "01", score = 1 + 1 = 2
+left = "01110" and right = "1", score = 2 + 1 = 3
 
 ```
 
 **Example 2:**
 
 ```
-Input: points = [[3,1],[9,0],[1,0],[1,4],[5,3],[8,8]]
+Input: s = "00111"
+Output: 5
+Explanation: When left = "00" and right = "111", we get the maximum score = 2 + 3 = 5
+
+```
+
+**Example 3:**
+
+```
+Input: s = "1111"
 Output: 3
 
 ```
 
 **Constraints:**
 
-- `n == points.length`
-- `2 <= n <= 105`
-- `points[i].length == 2`
-- `0 <= xi, yi <= 109`
+- `2 <= s.length <= 500`
+- The string `s` consists of characters `'0'` and `'1'` only.
 
 
 **Solution**
 */
 
 /**
- * @param {number[]} prices
- * @param {number} money
+ * @param {string} s
  * @return {number}
  */
-var buyChoco = function(arr, key) {
-  let ans = Infinity;
-      let fin;
+var maxScore = function (s) {
+  const length = s.length;
+  let ones = 0;
+  let tmpScore = s[0] === "0" ? 1 : 0;
+  let score = tmpScore;
 
-      for (let i = 0; i < arr.length; ++i) {
-          for (let j = 0; j < arr.length; ++j) {
-              if (i !== j) {
-                  const sum = arr[i] + arr[j];
-                  ans = Math.min(ans, sum);
-              }
-          }
-      }
+  for (let i = 1; i < length - 1; i++) {
+    if (s[i] === "0") {
+      tmpScore += 1;
+    } else {
+      ones += 1;
+      tmpScore -= 1;
+    }
 
-      fin = key - ans;
-      if(fin>=0){
-      return fin;
-      }
-      else{
-          return key;
-      }
+    if (tmpScore > score) {
+      score = tmpScore;
+    }
+  }
+
+  ones += s[length - 1] === "1" ? 1 : 0;
+
+  return ones + score;
 };
