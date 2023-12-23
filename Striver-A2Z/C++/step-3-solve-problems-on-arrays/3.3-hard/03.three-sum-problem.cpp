@@ -67,10 +67,10 @@ vector<vector<int>> threeSumBetter(vector<int> &nums) {
 /*
 Method: Optimal
 
-TC -> O(N) + O(N), where N = size of the given array.
-Reason: The first O(N) is to calculate the counts and find the expected majority elements. The second one is to check if the calculated elements are the majority ones or not.
+TC -> O(NlogN)+O(N2), where N = size of the array.
+Reason: The pointer i, is running for approximately N times. And both the pointers j and k combined can run for approximately N times including the operation of skipping duplicates. So the total time complexity will be O(N2).
 
-SC -> O(1) as we are only using a list that stores a maximum of 2 elements. The space used is so small that it can be considered constant.
+SC -> O(no. of quadruplets), This space is only used to store the answer. We are not using any extra space to solve this problem. So, from that perspective, space complexity can be written as O(1).
 */
 vector<vector<int>> threeSumOptimal(vector<int> &nums) {
   int n = nums.size();
