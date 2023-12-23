@@ -64,12 +64,57 @@ vector<vector<int>> threeSumBetter(vector<int> &nums) {
   return ans;
 }
 
+/*
+Method: Optimal
+
+TC -> O(N) + O(N), where N = size of the given array.
+Reason: The first O(N) is to calculate the counts and find the expected majority elements. The second one is to check if the calculated elements are the majority ones or not.
+
+SC -> O(1) as we are only using a list that stores a maximum of 2 elements. The space used is so small that it can be considered constant.
+*/
+vector<vector<int>> threeSumOptimal(vector<int> &nums) {
+  int n = nums.size();
+  vector<vector<int>> ans;
+  sort(nums.begin(), nums.end());
+
+  for (int i = 0; i < n; i++) {
+    if (i > 0 && nums[i] == nums[i - 1])
+      continue;
+
+    int j = i + 1;
+    int k = n - 1;
+
+    while (j < k) {
+      int sum = nums[i] + nums[j] + nums[k];
+
+      if (sum < 0) {
+        j++;
+      } else if (sum > 0) {
+        k--;
+      } else { // when sum == 0
+        vector<int> temp = {nums[i], nums[j], nums[k]};
+        ans.push_back(temp);
+        j++;
+        k--;
+
+        while (j < k && nums[j] == nums[j - 1])
+          j++;
+        while (j < k && nums[k] == nums[k + 1])
+          k--;
+      }
+    }
+  }
+
+  return ans;
+}
+
 int main() {
 
   vector<int> arr = {-1, 0, 1, 2, -1, -4};
 
   // vector<vector<int>> output = threeSumBrute(arr);
-  vector<vector<int>> output = threeSumBetter(arr);
+  // vector<vector<int>> output = threeSumBetter(arr);
+  vector<vector<int>> output = threeSumOptimal(arr);
 
   for (auto it : output) {
     cout << "[ ";
