@@ -31,11 +31,45 @@ vector<vector<int>> threeSumBrute(vector<int> &nums) {
   return ans;
 }
 
+/*
+Method: Better
+
+TC -> O(N2 * log(no. of unique triplets)), where N = size of the array.
+Reason: Here, we are mainly using 3 nested loops. And inserting triplets into the set takes O(log(no. of unique triplets)) time complexity. But we are not considering the time complexity of sorting as we are just sorting 3 elements every time.
+
+SC -> O(2 * no. of the unique triplets) + O(N) as we are using a set data structure and a list to store the triplets and extra O(N) for storing the array elements in another set.
+*/
+vector<vector<int>> threeSumBetter(vector<int> &nums) {
+  int n = nums.size();
+  set<vector<int>> st;
+
+  for (int i = 0; i < n; i++) {
+    set<int> hashset;
+    for (int j = i + 1; j < n; j++) {
+      // Calculate the 3rd element:
+      int third = -(nums[i] + nums[j]);
+
+      // Find the element in the set:
+      if (hashset.find(third) != hashset.end()) {
+        vector<int> temp = {nums[i], nums[j], third};
+        sort(temp.begin(), temp.end());
+        st.insert(temp);
+      }
+      hashset.insert(nums[j]);
+    }
+  }
+
+  // store the set in the answer:
+  vector<vector<int>> ans(st.begin(), st.end());
+  return ans;
+}
+
 int main() {
 
   vector<int> arr = {-1, 0, 1, 2, -1, -4};
 
-  vector<vector<int>> output = threeSumBrute(arr);
+  // vector<vector<int>> output = threeSumBrute(arr);
+  vector<vector<int>> output = threeSumBetter(arr);
 
   for (auto it : output) {
     cout << "[ ";
