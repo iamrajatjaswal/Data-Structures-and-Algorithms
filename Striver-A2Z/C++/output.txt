@@ -1,1 +1,1 @@
-The length of the longest subarray with sum 0 is: 5
+The number of subarrays with XOR as 6 is: 4
