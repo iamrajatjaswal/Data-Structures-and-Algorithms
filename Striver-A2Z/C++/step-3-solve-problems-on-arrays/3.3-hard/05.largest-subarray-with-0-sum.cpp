@@ -51,11 +51,39 @@ int largestSubarrayWith0SumBetter(vector<int> &nums) {
   return maxLen;
 }
 
+/*
+Method: Optimal
+Approach: Using Kadane's Algorithm
+TC -> O(N)
+SC -> O(1)
+*/
+int largestSubarrayWith0SumOptimal(vector<int> &nums) {
+  int n = nums.size();
+  int maxLen = 0;
+  int prefixSum = 0;
+  unordered_map<int, int> mpp;
+
+  for (int i = 0; i < n; i++) {
+    prefixSum += nums[i];
+
+    if (prefixSum == 0) {
+      maxLen = i + 1;
+    } else if (mpp.find(prefixSum) != mpp.end()) {
+      maxLen = max(maxLen, i - mpp[prefixSum]);
+    } else {
+      mpp[prefixSum] = i;
+    }
+  }
+
+  return maxLen;
+}
+
 int main() {
   vector<int> arr = {9, -3, 3, -1, 6, -5};
 
   // int output = largestSubarrayWith0SumBrute(arr);
-  int output = largestSubarrayWith0SumBetter(arr);
+  // int output = largestSubarrayWith0SumBetter(arr);
+  int output = largestSubarrayWith0SumOptimal(arr);
   cout << "The length of the longest subarray with sum 0 is: " << output << endl;
 
   return 0;
