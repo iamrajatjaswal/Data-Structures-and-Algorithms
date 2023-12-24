@@ -57,8 +57,10 @@ int numberOfSubarraysWithXorKBetter(vector<int> &nums, int k) {
 
 /*
 Method: Optimal
-TC -> O(N)
-SC -> O(N)
+TC -> O(N) or O(N*logN) depending on which map data structure we are using, where N = size of the array.
+Reason: For example, if we are using an unordered_map data structure in C++ the time complexity will be O(N) but if we are using a map data structure, the time complexity will be O(N*logN). The least complexity will be O(N) as we are using a loop to traverse the array. Point to remember for unordered_map in the worst case, the searching time increases to O(N), and hence the overall time complexity increases to O(N2).
+
+SC -> O(N) as we are using a map data structure.
 */
 int numberOfSubarraysWithXorKOptimal(vector<int> &nums, int k) {
   int n = nums.size();
