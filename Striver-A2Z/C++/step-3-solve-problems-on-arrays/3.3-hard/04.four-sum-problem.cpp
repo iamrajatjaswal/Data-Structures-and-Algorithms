@@ -47,13 +47,15 @@ SC -> O(2 * no. of the quadruplets)+O(N)
 Reason: we are using a set data structure and a list to store the quads. This results in the first term. And the second space is taken by the set data structure we are using to store the array elements. At most, the set can contain approximately all the array elements and so the space complexity is O(N).
 */
 vector<vector<int>> fourSumBetter(vector<int> &nums, int target) {
-  int n = nums.size();
+  int n = nums.size(); // size of the array
   set<vector<int>> st;
 
+  // checking all possible quadruplets:
   for (int i = 0; i < n; i++) {
     for (int j = i + 1; j < n; j++) {
       set<long long> hashset;
       for (int k = j + 1; k < n; k++) {
+        // taking bigger datatype to avoid integer outflow:
         long long sum = nums[i] + nums[j];
         sum += nums[k];
         long long fourth = target - (sum);
@@ -64,6 +66,7 @@ vector<vector<int>> fourSumBetter(vector<int> &nums, int target) {
 
           st.insert(temp);
         }
+        // put the kth element into the hashset:
         hashset.insert(nums[k]);
       }
     }
@@ -77,7 +80,7 @@ vector<vector<int>> fourSumBetter(vector<int> &nums, int target) {
 /*
 Method: Optimal
 
-TC -> O(N3), where N = size of the array.
+TC -> O(N^3), where N = size of the array.
 Reason: Each of the pointers i and j, is running for approximately N times. And both the pointers k and l combined can run for approximately N times including the operation of skipping duplicates. So the total time complexity will be O(N3).
 
 SC -> O(no. of quadruplets), This space is only used to store the answer. We are not using any extra space to solve this problem. So, from that perspective, space complexity can be written as O(1).
