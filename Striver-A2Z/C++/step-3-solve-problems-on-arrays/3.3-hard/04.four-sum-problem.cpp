@@ -9,7 +9,7 @@ Reason: Here, we are mainly using 4 nested loops. But we not considering the tim
 
 SC -> O(2 * no. of the quadruplets) as we are using a set data structure and a list to store the quads.
 */
-vector<vector<int>> fourSum(vector<int> &nums, int target) {
+vector<vector<int>> fourSumBrute(vector<int> &nums, int target) {
   int n = nums.size(); // size of the array
   set<vector<int>> st;
 
@@ -41,7 +41,7 @@ int main() {
   vector<int> nums = {4, 3, 3, 4, 4, 2, 1, 2, 1, 1};
   int target = 9;
 
-  vector<vector<int>> output = fourSum(nums, target);
+  vector<vector<int>> output = fourSumBrute(nums, target);
   cout << "The quadruplets are: " << endl;
 
   for (auto it : output) {
