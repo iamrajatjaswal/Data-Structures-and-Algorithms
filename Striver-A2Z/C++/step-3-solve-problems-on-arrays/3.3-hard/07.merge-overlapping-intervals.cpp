@@ -71,9 +71,6 @@ int main() {
   // expected output: [[1,6], [8, 11], [15, 18]]
 
   // vector<vector<int>> output = mergeOverlappingIntervalsBrute(arr);
-  /*
-
-  */
   vector<vector<int>> output = mergeOverlappingIntervalsOptimal(arr);
 
   cout << "The merged intervals are: " << endl;
