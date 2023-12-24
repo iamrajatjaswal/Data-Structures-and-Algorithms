@@ -1,1 +1,2 @@
-The number of subarrays with XOR as 6 is: 4
+The merged intervals are: 
+[ 1, 6] [ 8, 11] [ 15, 18] 
