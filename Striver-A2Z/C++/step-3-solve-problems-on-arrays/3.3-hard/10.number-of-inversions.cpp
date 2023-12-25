@@ -3,6 +3,12 @@ using namespace std;
 
 /*
 Method: Brute
+
+TC -> O(N2), where N = size of the given array.
+Reason: We are using nested loops here and those two loops roughly run for N times.
+
+SC -> O(1) as we are not using any extra space to solve this problem.
+
 */
 int numberOfInversionsBrute(vector<int> &nums) {
   int n = nums.size();
