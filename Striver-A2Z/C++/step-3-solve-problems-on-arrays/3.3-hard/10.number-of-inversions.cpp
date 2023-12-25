@@ -82,6 +82,11 @@ int mergeSort(vector<int> &nums, int low, int high) {
 
 /*
 Method: Optimal
+
+TC -> O(N*logN), where N = size of the given array.
+Reason: We are not changing the merge sort algorithm except by adding a variable to it. So, the time complexity is as same as the merge sort.
+
+SC -> O(N), as in the merge sort We use a temporary array to store elements in sorted order.
 */
 int numberOfInversionsOptimal(vector<int> &nums) {
   int n = nums.size();
