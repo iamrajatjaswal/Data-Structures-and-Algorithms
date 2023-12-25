@@ -1,2 +1,3 @@
-The merged intervals are: 
-[ 1, 6] [ 8, 11] [ 15, 18] 
+The merged arrays are: 
+arr1[] = 1 2 3 4 
+arr2[] = 8 9 10 
