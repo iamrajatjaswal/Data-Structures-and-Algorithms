@@ -163,12 +163,17 @@ var lengthOfLongestSubstringBetter = function (s) {
 /*
   Method: Better 2
   Approach: Sliding Window with Hash Table
+  TC -> O(2N), where N is the length of the array
+  Because in the worst case the right pointer will go to extreme right first and if there is some
+  other element which is coming repeating then the left element will also move and cover the whole
+  array that is why TC will be at max 2 * N which covering the array twice in the worst case
+  
+  SC -> O(N), where N is the length of the array
+  Because we are using Set to store all the elements into the set in the worst case
 */
 var lengthOfLongestSubstringBetter2 = function (s) {
   const n = s.length;
   if (n === 0) return 0;
-
-  // abcabcbb
 
   let maxLength = 0;
   let charSet = new Set();
