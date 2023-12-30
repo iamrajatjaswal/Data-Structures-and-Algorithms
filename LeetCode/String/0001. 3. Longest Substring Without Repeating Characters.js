@@ -121,6 +121,19 @@ var lengthOfLongestSubstringBrute = function (s) {
 
 /*
   Method: Better
+  TC -> O(n^2)
+  * The outer loop runs in O(n) time, where n is the length of the input string.
+  * The inner loop also runs in O(n) time in the worst case, considering each character once.
+  * Within the inner loop, set operations (has and add) are considered O(1) on average, leading 
+    to an average time complexity of O(n).
+  * Therefore, the overall time complexity is O(n^2).
+
+  SC -> O(min(n, m)), where n is the length of the input string, and m is the size of the 
+  character set (assuming constant size, such as ASCII characters).
+  * The currentSubstring variable can potentially store up to n characters in the worst case.
+  * The charSet set also stores unique characters, and its size is limited by the character set 
+    size, so it can be considered O(min(n, m)).
+  * Therefore, the overall space complexity is O(min(n, m)).
 */
 var lengthOfLongestSubstringBetter = function (s) {
   const n = s.length;
