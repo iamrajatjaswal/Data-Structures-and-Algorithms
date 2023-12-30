@@ -161,13 +161,44 @@ var lengthOfLongestSubstringBetter = function (s) {
 };
 
 /*
+  Method: Better 2
+  Approach: Sliding Window with Hash Table
+*/
+var lengthOfLongestSubstringBetter2 = function (s) {
+  const n = s.length;
+  if (n === 0) return 0;
+
+  // abcabcbb
+
+  let maxLength = 0;
+  let charSet = new Set();
+  let left = 0;
+  let right = 0;
+
+  while (right < n) {
+    while (charSet.has(s[right])) {
+      charSet.delete(s[left]);
+      left++;
+    }
+
+    charSet.add(s[right]);
+    maxLength = Math.max(maxLength, right - left + 1);
+
+    right++;
+  }
+
+  return maxLength;
+};
+
+/*
   Output
 */
-// const str = "abcabcbb";
+const str = "abcabcbb";
 // const str = "bbbbb";
-const str = "pwwke1%w";
+// const str = "pwwke1%w";
 // const output = lengthOfLongestSubstringBrute(str);
-const output = lengthOfLongestSubstringBetter(str);
+// const output = lengthOfLongestSubstringBetter(str);
+const output = lengthOfLongestSubstringBetter2(str);
 
 console.log(
   "Length of the longest substring without repeating characters is:",
