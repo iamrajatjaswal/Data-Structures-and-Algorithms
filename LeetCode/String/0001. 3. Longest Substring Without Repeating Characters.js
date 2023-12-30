@@ -47,6 +47,7 @@ Notice that the answer must be a substring, "pwke" is a subsequence and not a su
 **Solution**
 */
 
+// Helper function to check if a character is repeating in a string
 /**
  * @param {string} substring
  * @param {string} char
@@ -78,26 +79,41 @@ var isRepeating = function (substring, char) {
  * @return {number}
  */
 var lengthOfLongestSubstringBrute = function (s) {
+  // Check if the input string is empty
   if (s.length === 0) return 0;
 
+  // Initialize the maximum length of the substring
   let maxLength = 0;
   let n = s.length;
 
+  // Outer loop to iterate through each character in the string
   for (let i = 0; i < n; i++) {
+    // Initialize the current substring
     let currentSubstring = "";
+
+    // Check if the current character is repeating in the substring
     for (let j = i; j < n; j++) {
+      // Check if the current character is repeating in the substring
       if (isRepeating(currentSubstring, s[j])) {
+        // If repeating, break the inner loop
         break;
       }
 
+      // Add the current character to the substring
       currentSubstring += s[j];
+
+      // Update the maximum length if the current substring is longer
       maxLength = Math.max(maxLength, currentSubstring.length);
     }
   }
 
+  // Return the maximum length of the substring without repeating characters
   return maxLength;
 };
 
+/*
+  Output
+*/
 // const str = "abcabcbb";
 // const str = "bbbbb";
 const str = "pwwke1%w";
