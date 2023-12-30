@@ -163,12 +163,12 @@ var lengthOfLongestSubstringBetter = function (s) {
 /*
   Method: Better 2
   Approach: Sliding Window with Hash Table
-  TC -> O(2N), where N is the length of the array
+  TC -> O(2N), where N is the length of the string
   Because in the worst case the right pointer will go to extreme right first and if there is some
   other element which is coming repeating then the left element will also move and cover the whole
-  array that is why TC will be at max 2 * N which covering the array twice in the worst case
+  string that is why TC will be at max 2 * N which covering the string twice in the worst case
   
-  SC -> O(N), where N is the length of the array
+  SC -> O(N), where N is the length of the string
   Because we are using Set to store all the elements into the set in the worst case
 */
 var lengthOfLongestSubstringBetter2 = function (s) {
@@ -201,7 +201,13 @@ var lengthOfLongestSubstringBetter2 = function (s) {
 };
 /*
   Method: Optimal
-  Approach: Sliding Window with map
+  Approach: Sliding Window with map, such that map will store the last index of the occurence of 
+  the right pointer in the string such that if we find a new character in the map then we can 
+  directly jump the left pointer to the last occurrence of that new character + 1 such that we 
+  now don't have the repeacting character in the substring any more as we would have removed that 
+  from the substring.
+  TC -> O(N), where N is the length of the string
+  SC -> O(N), where N is the length of the string
 */
 var lengthOfLongestSubstringOptimal = function (s) {
   const n = s.length;
