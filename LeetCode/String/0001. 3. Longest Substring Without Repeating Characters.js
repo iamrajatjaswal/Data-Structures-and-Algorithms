@@ -176,17 +176,22 @@ var lengthOfLongestSubstringBetter2 = function (s) {
   if (n === 0) return 0;
 
   let maxLength = 0;
+  // use a set to track unique characters in the current window
   let charSet = new Set();
-  let left = 0;
-  let right = 0;
+  let left = 0; // left pointer of the sliding window
+  let right = 0; // right pointer of the sliding window
 
   while (right < n) {
     while (charSet.has(s[right])) {
+      // move the left pointer to exclude the repeating character
       charSet.delete(s[left]);
       left++;
     }
 
+    // expand the window to include the current character
     charSet.add(s[right]);
+
+    // update the maximum length
     maxLength = Math.max(maxLength, right - left + 1);
 
     right++;
