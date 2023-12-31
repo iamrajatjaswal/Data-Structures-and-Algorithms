@@ -54,8 +54,7 @@ Output: ["a","b","c"]
 var letterCombinations = function (digits) {
   const n = digits.length;
   const output = [];
-  if (n === 0) return ouput;
-
+  if (n === 0) return output;
 
   const map = {
     2: ["a", "b", "c"],
@@ -84,6 +83,51 @@ var letterCombinations = function (digits) {
   return output;
 };
 
+
+/**
+ * @param {string} digits
+ * @return {string[]}
+ */
+var letterCombinationsChatGPTSolution = function(digits) {
+  if (!digits || digits.length === 0) {
+      return [];
+  }
+
+  const digitMap = {
+      '2': 'abc',
+      '3': 'def',
+      '4': 'ghi',
+      '5': 'jkl',
+      '6': 'mno',
+      '7': 'pqrs',
+      '8': 'tuv',
+      '9': 'wxyz'
+  };
+
+  const result = [];
+
+  function backtrack(index, currentCombination) {
+      if (index === digits.length) {
+          result.push(currentCombination);
+          return;
+      }
+
+      const currentDigit = digits[index];
+      const letters = digitMap[currentDigit];
+
+      for (const letter of letters) {
+          backtrack(index + 1, currentCombination + letter);
+      }
+  }
+
+  backtrack(0, '');
+
+  return result;
+};
+
+
 const digits = "23";
-const output = letterCombinations(digits);
+// const output = letterCombinations(digits);
+const output = letterCombinationsChatGPTSolution(digits);
 console.log(output);
+
