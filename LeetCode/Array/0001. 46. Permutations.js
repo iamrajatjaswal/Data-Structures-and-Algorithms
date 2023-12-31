@@ -46,7 +46,14 @@ Output: [[1]]
 
 /*
   Method: Brute
+  TC -> O(N * N!)
+  where N is the length of the `nums` array
+
+  SC -> O(N) + O(N)
+  where first O(N) is for the data structure `ds` and the second O(N) is for the map array i.e. 
+  `freq`
 */
+
 /**
  * @param {number} ind
  * @param {number} n
@@ -63,7 +70,7 @@ function getAllPermutations(ind, n, freq, ds, result, nums) {
   }
 
   for (let i = 0; i < n; i++) {
-    if (freq[i] === 0) {
+    if (!freq[i]) {
       freq[i] = 1;
       ds.push(nums[i]);
 
