@@ -72,6 +72,16 @@ var findContentChildren = function (g, s) {
 
 /*
      My Best Solution
+     TC -> O(N logN)
+     The dominant factor in the time complexity is the sorting step for both arrays g and s. 
+     Therefore, the time complexity is determined by the sorting, which is O(n log n) for each 
+     array. After sorting, the while loop iterates through both arrays once. So, the overall time 
+     complexity is O(n log n), where n is the length of the larger of the two arrays.
+
+     SC -> O(N)
+     The space complexity is primarily due to the sorting. The sort method typically uses 
+     O(log n) space for the sorting algorithm. Apart from that, the algorithm uses a constant amount of space for the loop variables i and j. Therefore, the overall space complexity is O
+     (log n).
 */
 /**
  * @param {number[]} g
