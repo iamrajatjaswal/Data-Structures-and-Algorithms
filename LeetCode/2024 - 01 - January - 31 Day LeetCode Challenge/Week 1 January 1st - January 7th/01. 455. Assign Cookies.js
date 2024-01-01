@@ -69,3 +69,29 @@ var findContentChildren = function (g, s) {
   }
   return maxNum;
 };
+
+/*
+     My Best Solution
+*/
+/**
+ * @param {number[]} g
+ * @param {number[]} s
+ * @return {number}
+ */
+var findContentChildren = function (g, s) {
+  g.sort((a, b) => a - b);
+  s.sort((a, b) => a - b);
+
+  let i = 0; // child represented by i
+  let j = 0; // cookie represneted by j
+  while (i < g.length && j < s.length) {
+    if (g[i] <= s[j]) {
+      i++;
+      j++;
+    } else {
+      j++;
+    }
+  }
+
+  return i;
+};
