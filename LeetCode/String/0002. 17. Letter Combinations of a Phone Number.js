@@ -1,133 +1,92 @@
 /*
 
-Title: 17. Letter Combinations of a Phone Number
-URL: https://leetcode.com/problems/letter-combinations-of-a-phone-number/
+Title: 2981. Find Longest Special Substring That Occurs Thrice I
+URL: https://leetcode.com/problems/find-longest-special-substring-that-occurs-thrice-i/
 Difficulty: Medium
-Topics: Hash Table, String, Backtracking
+Topics: Not given yet
 
 
 **Problem**
 
-Given a string containing digits from `2-9` inclusive, return all possible letter combinations that the number could represent. Return the answer in **any order**.
+You are given a string `s` that consists of lowercase English letters.
 
-A mapping of digits to letters (just like on the telephone buttons) is given below. Note that 1 does not map to any letters.
+A string is called **special** if it is made up of only a single character. For example, the string `"abc"` is not special, whereas the strings `"ddd"`, `"zz"`, and `"f"` are special.
 
-!https://assets.leetcode.com/uploads/2022/03/15/1200px-telephone-keypad2svg.png
+Return *the length of the **longest special substring** of* `s` *which occurs **at least thrice***, *or* `-1` *if no special substring occurs at least thrice*.
+
+A **substring** is a contiguous **non-empty** sequence of characters within a string.
 
 **Example 1:**
 
 ```
-Input: digits = "23"
-Output: ["ad","ae","af","bd","be","bf","cd","ce","cf"]
+Input: s = "aaaa"
+Output: 2
+Explanation: The longest special substring which occurs thrice is "aa": substrings "aaaa", "aaaa", and "aaaa".
+It can be shown that the maximum length achievable is 2.
 
 ```
 
 **Example 2:**
 
 ```
-Input: digits = ""
-Output: []
+Input: s = "abcdef"
+Output: -1
+Explanation: There exists no special substring which occurs at least thrice. Hence return -1.
 
 ```
 
 **Example 3:**
 
 ```
-Input: digits = "2"
-Output: ["a","b","c"]
+Input: s = "abcaba"
+Output: 1
+Explanation: The longest special substring which occurs thrice is "a": substrings "abcaba", "abcaba", and "abcaba".
+It can be shown that the maximum length achievable is 1.
 
 ```
 
 **Constraints:**
 
-- `0 <= digits.length <= 4`
-- `digits[i]` is a digit in the range `['2', '9']`.
+- `3 <= s.length <= 50`
+- `s` consists of only lowercase English letters.
 
 
 **Solution**
 */
 
 /**
- * @param {string} digits
- * @return {string[]}
+ * @param {string} s
+ * @return {number}
  */
-var letterCombinations = function (digits) {
-  const n = digits.length;
-  const output = [];
-  if (n === 0) return output;
+var maximumLength = function (s) {
+  if (s.length < 3) return -1;
+  const n = s.length;
+  let hash = {};
+  let cnt = -1;
 
-  const map = {
-    2: ["a", "b", "c"],
-    3: ["d", "e", "f"],
-    4: ["g", "h", "i"],
-    5: ["j", "k", "l"],
-    6: ["m", "n", "o"],
-    7: ["p", "q", "r", "s"],
-    8: ["t", "u", "v"],
-    9: ["w", "x", "y", "z"],
-  };
+  let substr = s[0];
+  hash[s[0]] = 1;
 
-  var generateAll = function (curr, ind, n, map, digits, output) {
-    if (ind === n) {
-      output.push(curr);
-      return;
+  for (let i = 1; i < n; i++) {
+    substr += s[i];
+
+    if (s[i] != s[i - 1]) {
+      substr = s[i];
+      hash[s[i]] = (hash[s[i]] || 0) + 1;
+    } else {
+      let temp = "";
+      for (let j = 0; j < substr.length; j++) {
+        temp += substr[j];
+        hash[temp] = (hash[temp] || 0) + 1;
+      }
     }
-
-    for (char of map[digits[ind]]) {
-      generateAll(curr + char, ind + 1, n, map, digits, output);
-    }
-  };
-
-  generateAll("", 0, n, map, digits, output);
-
-  return output;
-};
-
-
-/**
- * @param {string} digits
- * @return {string[]}
- */
-var letterCombinationsChatGPTSolution = function(digits) {
-  if (!digits || digits.length === 0) {
-      return [];
   }
 
-  const digitMap = {
-      '2': 'abc',
-      '3': 'def',
-      '4': 'ghi',
-      '5': 'jkl',
-      '6': 'mno',
-      '7': 'pqrs',
-      '8': 'tuv',
-      '9': 'wxyz'
-  };
-
-  const result = [];
-
-  function backtrack(index, currentCombination) {
-      if (index === digits.length) {
-          result.push(currentCombination);
-          return;
-      }
-
-      const currentDigit = digits[index];
-      const letters = digitMap[currentDigit];
-
-      for (const letter of letters) {
-          backtrack(index + 1, currentCombination + letter);
-      }
+  for (let char in hash) {
+    if (hash[char] >= 3) {
+      cnt = Math.max(cnt, char.length);
+    }
   }
 
-  backtrack(0, '');
-
-  return result;
+  return cnt;
 };
-
-
-const digits = "23";
-// const output = letterCombinations(digits);
-const output = letterCombinationsChatGPTSolution(digits);
-console.log(output);
-
