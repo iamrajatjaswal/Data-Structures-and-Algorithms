@@ -83,3 +83,37 @@ var numberOfBeams = function (bank) {
   }
   return total;
 };
+
+/*
+  Method: 
+  TC -> O(M * N)
+  SC -> O(1)
+*/
+const getLasersCount = function (string) {
+  let count = 0;
+
+  for (let i = 0; i < string.length; i++) {
+    if (string[i] === "1") count++;
+  }
+
+  return count;
+};
+
+/**
+ * @param {string[]} bank
+ * @return {number}
+ */
+var numberOfBeams = function (bank) {
+  let lasers = 0;
+  let prevLasersCount = 0;
+
+  for (const row of bank) {
+    let currLasersCount = getLasersCount(row);
+    if (currLasersCount > 0) {
+      lasers += prevLasersCount * currLasersCount;
+      prevLasersCount = currLasersCount;
+    }
+  }
+
+  return lasers;
+};
