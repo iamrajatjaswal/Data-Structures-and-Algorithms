@@ -50,6 +50,12 @@ Explanation: "anagram" and "mangaar" are anagrams.
 **Solution**
 */
 
+/*
+Method: Brute Force
+TC -> O(N)
+SC -> O(1)
+*/
+
 /**
  * @param {string} s
  * @param {string} t
@@ -79,4 +85,31 @@ var minSteps = function (s, t) {
   }
 
   return s.length - cnt;
+};
+
+/*
+Method: Optimal
+TC -> O(N)
+SC -> O(1)
+*/
+var minSteps = function (s, t) {
+  let count = Array(26).fill(0);
+  let i = 0;
+
+  // Storing the difference of frequencies of characters in t and s.
+  while (i < s.length) {
+    count[t.charCodeAt(i) - "a".charCodeAt(0)]++;
+    count[s.charCodeAt(i) - "a".charCodeAt(0)]--;
+    i++;
+  }
+
+  let ans = 0;
+  i = 0;
+
+  while (i < 26) {
+    ans += Math.max(0, count[i]);
+    i++;
+  }
+
+  return ans;
 };
