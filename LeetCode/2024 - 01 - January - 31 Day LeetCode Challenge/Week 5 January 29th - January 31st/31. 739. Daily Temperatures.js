@@ -73,3 +73,37 @@ var dailyTemperatures = function (temperatures) {
 
   return result;
 };
+
+/*
+  Approach 2
+  TC : O(N)
+  SC : O(N)
+*/
+
+/**
+ * @param {number[]} temperatures
+ * @return {number[]}
+ */
+var dailyTemperatures = function (temperatures) {
+  const result = new Array(temperatures.length).fill(0);
+  const stack = [];
+
+  for (let i = temperatures.length - 1; i >= 0; --i) {
+    const currTemperature = temperatures[i];
+
+    while (
+      stack.length > 0 &&
+      currTemperature >= temperatures[stack[stack.length - 1]]
+    ) {
+      stack.pop();
+    }
+
+    if (stack.length > 0) {
+      result[i] = stack[stack.length - 1] - i;
+    }
+
+    stack.push(i);
+  }
+
+  return result;
+};
