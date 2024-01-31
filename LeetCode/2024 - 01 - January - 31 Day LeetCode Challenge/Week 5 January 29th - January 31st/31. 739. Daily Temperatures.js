@@ -43,6 +43,12 @@ Output: [1,1,0]
 **Solution**
 */
 
+/*
+  Approach 1
+  TC : O(N)
+  SC : O(N)
+*/
+
 /**
  * @param {number[]} temperatures
  * @return {number[]}
