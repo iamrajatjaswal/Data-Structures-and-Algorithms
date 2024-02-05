@@ -47,7 +47,27 @@ Output: -1
 
 /*
   Approach
-  TC -> O(s+t)
-  SC -> O(s+t)
+  TC -> O(n)
+  SC -> O(U)
+  (U is the number of unique characters in the string.)*
 */
 
+/**
+ * @param {string} s
+ * @return {number}
+ */
+var firstUniqChar = function(s) {
+  let mp = {};
+
+  for (let a of s) {
+      mp[a] = (mp[a] || 0) + 1;
+  }
+
+  for (let i = 0; i < s.length; i++) {
+      if (mp[s[i]] === 1) {
+          return i;
+      }
+  }
+
+  return -1;
+};
