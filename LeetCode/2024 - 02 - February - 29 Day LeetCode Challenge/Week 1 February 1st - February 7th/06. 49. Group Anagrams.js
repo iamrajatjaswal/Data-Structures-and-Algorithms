@@ -111,6 +111,17 @@ var groupAnagrams = function (strs) {
 /*
   Approach 2
   
+  - Time complexity:
+    
+    O(n∗k∗logk)
+    
+    *(K is the length of the longest string)*
+    
+- Space complexity:
+    
+    O(n∗k)
+    
+    *(K is the length of the longest string)*
 */
 
 /**
