@@ -50,6 +50,18 @@ Output: [["a"]]
 
 /*
   Approach 1
+  
+  - Time complexity:
+    
+    O(n∗k)
+    
+    *(K is the length of the longest string)*
+    
+- Space complexity:
+    
+    O(n∗k)
+    
+    *(K is the length of the longest string)*
 */
 
 /**
