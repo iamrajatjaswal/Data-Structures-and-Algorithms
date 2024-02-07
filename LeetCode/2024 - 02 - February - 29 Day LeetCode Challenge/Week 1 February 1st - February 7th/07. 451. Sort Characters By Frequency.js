@@ -54,6 +54,14 @@ Note that 'A' and 'a' are treated as two different characters.
 
 /*
   Approach 1
+
+  - Time complexity:
+      
+      O(n)
+      
+  - Space complexity:
+      
+      O(n)
 */
 
 /**
