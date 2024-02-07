@@ -87,6 +87,14 @@ var frequencySort = function (s) {
 
 /*
   Approach 2
+  
+  - Time complexity:
+    
+    O(n)
+      
+  - Space complexity:
+      
+    O(n)
 */
 
 var frequencySort = function (s) {
