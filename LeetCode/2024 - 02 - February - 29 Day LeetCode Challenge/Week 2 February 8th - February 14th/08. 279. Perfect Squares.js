@@ -43,6 +43,14 @@ Explanation: 13 = 4 + 9.
 /*
   Approach 1
 
+  - Time complexity:
+    
+    O(n∗sqrt(n))
+    
+  - Space complexity:
+    
+    O(n)
+  
 */
 
 /**
