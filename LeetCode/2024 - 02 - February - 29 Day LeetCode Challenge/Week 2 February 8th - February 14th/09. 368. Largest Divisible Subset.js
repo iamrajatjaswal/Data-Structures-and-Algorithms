@@ -46,6 +46,14 @@ Output: [1,2,4,8]
 
 /*
   Approach 1
+
+  - Time complexity:
+    
+    O(n^2)
+    
+  - Space complexity:
+    
+    O(n)
 */
 
 /**
