@@ -45,6 +45,14 @@ Explanation: Six palindromic strings: "a", "a", "a", "aa", "aa", "aaa".
 
 /*
   Approach 1
+
+  - Time complexity:
+    
+    O(n^2)
+    
+  - Space complexity:
+    
+    O(n^2)
 */
 
 /**
