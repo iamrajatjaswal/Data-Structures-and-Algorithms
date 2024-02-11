@@ -67,6 +67,19 @@ Total of cherries: 17 + 11 = 28.
 
 /*
   Approach 1
+
+  - Time Complexity:
+    
+    O(m*n^2)
+
+    Time Complexity would also be the same here because we will fill this array, while traversing all possible columns.
+    
+  - Space Complexity:
+    
+    O(m*n^2)
+
+    Space complexity would be O(m*n^2) for memoization. where m is row and n is col.
+    
 */
 
 /**
