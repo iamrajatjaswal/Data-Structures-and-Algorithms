@@ -81,6 +81,14 @@ var majorityElement = function (nums) {
 
 /*
   Approach 2
+
+  - Time complexity:
+    
+    O(n)
+    
+  - Space complexity:
+    
+    O(1)
 */
 
 /**
