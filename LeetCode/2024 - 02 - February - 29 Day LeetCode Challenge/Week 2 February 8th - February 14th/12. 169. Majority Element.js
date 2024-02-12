@@ -45,6 +45,14 @@ Could you solve the problem in linear time and in `O(1)` space?
 
 /*
   Approach 1    
+  
+  - Time complexity:
+    
+    O(n)
+    
+  - Space complexity:
+    
+    O(n)
 */
 
 /**
