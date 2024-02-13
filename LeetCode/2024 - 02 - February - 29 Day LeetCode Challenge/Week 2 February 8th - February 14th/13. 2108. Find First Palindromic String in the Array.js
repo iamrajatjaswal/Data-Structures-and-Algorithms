@@ -55,6 +55,16 @@ Explanation: There are no palindromic strings, so the empty string is returned.
 
 /*
   Approach 1
+
+  - Time complexity:
+    
+    O(N.M)
+    
+    *(N is the number of words in the input array and M is the maximum length of a word.)*
+    
+    - Space complexity:
+    
+    O(1)
 */
 
 /**
