@@ -100,6 +100,16 @@ var firstPalindrome = function (words) {
 
 /*
   Approach 2
+
+  - Time complexity:
+    
+    O(N.M)
+    
+    *(N is the number of words in the input array and M is the maximum length of a word.)*
+    
+  - Space complexity:
+    
+    O(1)
 */
 
 /**
