@@ -56,3 +56,34 @@ Explanation: There are no palindromic strings, so the empty string is returned.
 /*
   Approach 1
 */
+
+/**
+ * @param {string} s
+ * @return {boolean}
+ */
+var check = function (s) {
+  let i = 0,
+    j = s.length - 1;
+  while (i <= j) {
+    if (s[i] === s[j]) {
+      i++;
+      j--;
+    } else {
+      return false;
+    }
+  }
+  return true;
+};
+
+/**
+ * @param {string[]} words
+ * @return {string}
+ */
+var firstPalindrome = function (words) {
+  for (let word of words) {
+    if (check(word)) {
+      return word;
+    }
+  }
+  return "";
+};
