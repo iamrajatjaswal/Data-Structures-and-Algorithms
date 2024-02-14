@@ -55,7 +55,7 @@ So nums is rearranged to [1,-1].
 */
 
 /*
-  Approach 1
+  Approach 1 (Brute Force)
 
   - Time complexity:
     
@@ -97,7 +97,7 @@ var rearrangeArray = function (nums) {
 };
 
 /*
-  Approach 2
+  Approach 2 (Optimized)
 
   - Time complexity:
     
