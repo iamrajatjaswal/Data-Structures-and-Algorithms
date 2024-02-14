@@ -56,6 +56,14 @@ So nums is rearranged to [1,-1].
 
 /*
   Approach 1
+
+  - Time complexity:
+    
+    O(n)
+    
+  - Space complexity:
+    
+    O(n)
 */
 
 /**
