@@ -89,6 +89,14 @@ var largestPerimeter = function (nums) {
 
 /*
   Approach 2 ( With Forward Iteration )
+
+  - Time complexity:
+    
+    O(nlogn)
+    
+  - Space complexity:
+    
+    O(1)
 */
 /**
  * @param {number[]} nums
