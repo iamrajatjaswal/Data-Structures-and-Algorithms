@@ -61,6 +61,14 @@ Explanation: There is no possible way to form a polygon from nums, as a polygon 
 
 /*
   Approach 1( With Backward Iteration)
+
+  - Time complexity:
+    
+    O(nlogn)
+      
+  - Space complexity:
+      
+    O(1)
 */
 /**
  * @param {number[]} nums
