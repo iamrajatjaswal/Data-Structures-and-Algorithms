@@ -38,3 +38,32 @@ Explanation: Remove 4, 2 and either one of the two 1s or three 3s. 1 and 3 will 
 **Solution**
 
 */
+
+/*
+  Approach 1
+*/
+/**
+ * @param {number[]} arr
+ * @param {number} k
+ * @return {number}
+ */
+var findLeastNumOfUniqueInts = function (arr, k) {
+  const freq = new Map();
+  for (const a of arr) {
+    freq.set(a, (freq.get(a) || 0) + 1);
+  }
+
+  const pq = Array.from(freq.values()).sort((a, b) => a - b);
+
+  let uniqueCount = pq.length;
+  for (const count of pq) {
+    if (k >= count) {
+      k -= count;
+      uniqueCount--;
+    } else {
+      break;
+    }
+  }
+
+  return uniqueCount;
+};
