@@ -41,6 +41,23 @@ Explanation: Remove 4, 2 and either one of the two 1s or three 3s. 1 and 3 will 
 
 /*
   Approach 1
+
+  1. **Time Complexity**:
+    - The loop that constructs the frequency map has a time complexity of O(n), where n is the number of elements in the input array **`arr`**.
+
+    - Constructing the priority queue (or sorting the frequency counts array) takes O(n log n) time.
+
+    - The loop that iterates through the priority queue or sorted array to determine the number of unique elements takes O(n) time.
+
+    - Overall, the time complexity is dominated by the sorting step, so it's O(n log n).
+
+    
+  2. **Space Complexity**:
+    - The space complexity is primarily determined by the frequency map, which stores the frequency of each element. In the worst case, all elements are unique, so the map would have a size of O(n).
+
+    - The priority queue or sorted array of frequencies also takes up O(n) space.
+    
+    - The overall space complexity is O(n).
 */
 /**
  * @param {number[]} arr
