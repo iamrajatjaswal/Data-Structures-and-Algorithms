@@ -40,9 +40,18 @@ Explanation: Remove 4, 2 and either one of the two 1s or three 3s. 1 and 3 will 
 */
 
 /*
-  Approach 1
+  Approach 1 (Greedy Approach)
 
-  1. **Time Complexity**:
+    ### Approach:
+
+    The approach used in this solution is often referred to as a "greedy" approach.
+
+    In this problem, the algorithm prioritizes removing elements with the lowest frequency first, as long as there is enough remaining "capacity" in **`k`**. This greedy strategy aims to minimize the number of unique integers remaining after the removal process.
+
+    The algorithm iterates through the frequencies sorted in ascending order, attempting to remove as many unique integers as possible until the remaining **`k`** becomes insufficient to remove more integers. This approach may not always yield the optimal solution but often provides a good heuristic for certain optimization problems.
+  
+
+  **Time Complexity**:
     - The loop that constructs the frequency map has a time complexity of O(n), where n is the number of elements in the input array **`arr`**.
 
     - Constructing the priority queue (or sorting the frequency counts array) takes O(n log n) time.
@@ -52,7 +61,7 @@ Explanation: Remove 4, 2 and either one of the two 1s or three 3s. 1 and 3 will 
     - Overall, the time complexity is dominated by the sorting step, so it's O(n log n).
 
     
-  2. **Space Complexity**:
+  **Space Complexity**:
     - The space complexity is primarily determined by the frequency map, which stores the frequency of each element. In the worst case, all elements are unique, so the map would have a size of O(n).
 
     - The priority queue or sorted array of frequencies also takes up O(n) space.
