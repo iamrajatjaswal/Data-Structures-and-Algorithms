@@ -68,6 +68,14 @@ Output: 3
 
 /*
   Approach 1
+
+  - Time complexity:
+    
+    O(nlogk)
+    
+  - Space complexity:
+    
+    O(min(n,l))
 */
 /**
  * @param {number[]} heights
