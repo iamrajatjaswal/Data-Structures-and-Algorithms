@@ -54,7 +54,7 @@ Explanation: n = 9 since there are 9 numbers, so all numbers are in the range [0
 */
 
 /*
-  Approach 1
+  Approach 1 (Approach 1(Using Vectors)
 */
 /**
  * @param {number[]} nums
@@ -73,7 +73,7 @@ var missingNumber = function(nums) {
 };
 
 /*
-  Approach 2
+  Approach 2 (XOR Operation)
 */
 /**
  * @param {number[]} nums
@@ -92,7 +92,7 @@ var missingNumber = function(nums) {
 };
 
 /*
-  Approach 3
+  Approach 3 (Sum of all elements)
 */
 /**
  * @param {number[]} nums
@@ -106,7 +106,7 @@ var missingNumber = function(nums) {
 };
 
 /*
-  Approach 4
+  Approach 4 (Sorting)
 */
 /**
  * @param {number[]} nums
