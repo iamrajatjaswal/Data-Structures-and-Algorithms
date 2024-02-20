@@ -55,6 +55,14 @@ Explanation: n = 9 since there are 9 numbers, so all numbers are in the range [0
 
 /*
   Approach 1 (Approach 1(Using Vectors)
+
+  - Time complexity:
+    
+    O(n)
+    
+  - Space complexity:
+    
+    O(n)
 */
 /**
  * @param {number[]} nums
@@ -74,6 +82,14 @@ var missingNumber = function(nums) {
 
 /*
   Approach 2 (XOR Operation)
+
+  - Time complexity:
+    
+    O(n)
+    
+  - Space complexity:
+    
+    O(1)
 */
 /**
  * @param {number[]} nums
@@ -93,6 +109,14 @@ var missingNumber = function(nums) {
 
 /*
   Approach 3 (Sum of all elements)
+
+  - Time complexity:
+    
+    O(n)
+    
+  - Space complexity:
+    
+    O(1)
 */
 /**
  * @param {number[]} nums
@@ -107,6 +131,14 @@ var missingNumber = function(nums) {
 
 /*
   Approach 4 (Sorting)
+
+  - Time complexity:
+    
+    O(nlogn)
+    
+  - Space complexity:
+    
+    O(1)
 */
 /**
  * @param {number[]} nums
