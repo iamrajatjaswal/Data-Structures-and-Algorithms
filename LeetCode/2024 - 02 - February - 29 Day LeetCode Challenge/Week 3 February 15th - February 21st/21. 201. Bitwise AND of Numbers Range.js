@@ -44,3 +44,28 @@ Output: 0
 **Solution**
 
 */
+/*
+  Approach 1
+
+  - Time complexity:
+    
+    O(1)
+    
+  - Space complexity:
+    
+    O(1)
+*/
+/**
+ * @param {number} left
+ * @param {number} right
+ * @return {number}
+ */
+var rangeBitwiseAnd = function (left, right) {
+  let cnt = 0;
+  while (left !== right) {
+    left >>= 1;
+    right >>= 1;
+    cnt++;
+  }
+  return left << cnt;
+};
