@@ -61,6 +61,14 @@ Output: -1
 */
 /*
   Approach 1
+
+  - Time complexity:
+    
+    O(n)
+    
+  - Space complexity:
+    
+    O(n)
 */
 /**
  * @param {number} n
