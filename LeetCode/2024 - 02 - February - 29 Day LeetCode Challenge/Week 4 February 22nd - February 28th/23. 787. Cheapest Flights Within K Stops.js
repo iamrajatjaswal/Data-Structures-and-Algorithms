@@ -1,6 +1,6 @@
 /*
 
-Title: 997. Find the Town Judge
+Title: 787. Cheapest Flights Within K Stops
 URL: https://leetcode.com/problems/bitwise-and-of-numbers-range/
 Difficulty: Medium
 Topics: Dynamic Programming, Depth-First Search, Breadth-First Search, Graph, Heap (Priority Queue), Shortest Path
@@ -72,6 +72,18 @@ The optimal path with no stops from city 0 to 2 is marked in red and has cost 50
 */
 /*
   Approach 1
+
+  - Time complexity:
+    
+    O(E∗K)
+    
+    (E is the number of flights and k is the maximum number of stops.)
+    
+  - Space complexity:
+    
+    O(n)
+    
+    (V is the number of vertices (n) and E is the number of edges.)
 */
 /**
  * @param {number} n
