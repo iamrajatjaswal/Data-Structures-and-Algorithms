@@ -75,6 +75,18 @@ Thus, people 0, 1, 2, 3, and 4 know the secret after all the meetings.
 */
 /*
   Approach 1
+
+  - Time complexity:
+    - JavaScript, Python, and Python3 solutions: O(nlog⁡n+m) , where nn*n* is the number of meetings and mm*m* is the total number of attendees in all meetings.
+    - C++ solution: O(nlog⁡n+m) where *n* is the number of meetings and *m* is the total number of attendees in all meetings.
+    
+  - Space complexity:
+    - JavaScript, Python, and Python3 solutions: O(m) where mm*m* is the total number of attendees in all meetings.
+    - C++ solution: O(m), where mm*m* is the total number of attendees in all meetings.
+
+  The space complexity arises from maintaining sets, graphs, and queues to store the information about attendees and their relationships.
+
+  The time complexity is dominated by the sorting of meetings (O(nlog⁡n)) and the BFS traversal (O(m)), where mm*m* is the total number of attendees in all meetings.
 */
 /**
  * @param {number} n
