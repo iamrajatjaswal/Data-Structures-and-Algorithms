@@ -56,6 +56,14 @@ Explanation: There are 6 possible pairs of indices to traverse between: (0, 1), 
 */
 /*
   Approach 1
+
+  - Time complexity:
+    - The time complexity of identifying prime factors for each element in the array is approximately O(n√maxnum), where n is the number of elements in the array and max_num is the maximum value of an element in the array.
+    - The time complexity of the union-find operations is approximately O(nα(n), where α(n) is the inverse Ackermann function, which grows very slowly and can be considered constant for practical purposes.
+    - Therefore, the overall time complexity is O(n√maxnum).
+    
+  - Space complexity:
+    - The space complexity is O(n) for storing disjoint sets, set sizes, and first occurrences of prime factors.
 */
 /**
  * @param {number[]} nums
