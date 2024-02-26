@@ -53,6 +53,21 @@ Output: false
 **Solution**
 
 */
+/*
+  Appraoch 1
+
+  - Time complexity:
+    
+    O(n)
+    
+    *(n is the number of nodes in the tree)*
+    
+  - Space complexity:
+    
+    O(h)
+    
+    *(h is the height of the tree)*
+*/
 /**
  * Definition for a binary tree node.
  * function TreeNode(val, left, right) {
