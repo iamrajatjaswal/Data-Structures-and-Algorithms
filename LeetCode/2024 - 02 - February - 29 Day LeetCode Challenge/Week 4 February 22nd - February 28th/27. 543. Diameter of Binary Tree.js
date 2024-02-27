@@ -46,6 +46,13 @@ Output: 1
 */
 /*
   Appraoch 1
+
+  - **Time complexity**:
+    - For both the `Python` and `JavaScript` implementations, the time complexity is O(n)O(n)O(n), where n is the number of nodes in the binary tree.
+    - For the `C++` implementation, the time complexity is also O(n).
+    
+  - **Space complexity**:
+    - For all implementations, the space complexity is O(n) due to the recursive function calls and the space required for the call stack.
 */
 /**
  * Definition for a binary tree node.
