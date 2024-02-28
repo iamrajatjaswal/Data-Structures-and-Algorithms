@@ -43,6 +43,10 @@ Output: 7
 */
 /*
   Appraoch 1
+
+  - Time complexity: O(n), where n is the number of nodes in the binary tree. Each node is processed once during the level-order traversal.
+  
+  - Space complexity: O(m), where m is the maximum number of nodes at any level in the binary tree. In the worst case, the queue would store all nodes at the maximum level.
 */
 /**
  * Definition for a binary tree node.
