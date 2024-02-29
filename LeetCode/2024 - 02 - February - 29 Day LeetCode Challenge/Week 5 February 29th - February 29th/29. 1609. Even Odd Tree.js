@@ -70,6 +70,12 @@ Explanation: Node values in the level 1 should be even integers.
 */
 /*
   Appraoch 1
+
+  ## Time Complexity
+  - The time complexity of this solution is O(n), where n is the number of nodes in the binary tree. This is because the algorithm traverses each node once, visiting each node exactly once.
+
+  ## Space Complexity
+  - The space complexity is also O(n) in the worst case. This is because in the worst case scenario, the queue can hold all the nodes of the last level of the binary tree, which can be up to half of the total number of nodes in a complete binary tree.
 */
 /**
  * Definition for a binary tree node.
