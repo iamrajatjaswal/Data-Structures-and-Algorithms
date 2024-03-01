@@ -48,6 +48,14 @@ Explanation:One of the '1's must be in the last position. The maximum number tha
 */
 /*
   Appraoch 1
+  
+  - Time complexity:
+    
+    O(n)
+    
+  - Space complexity:
+    
+    O(n)
 */
 /**
  * @param {string} s
