@@ -114,6 +114,14 @@ function sortedSquares(nums) {
 
 /*
   Appraoch 2
+
+  - Time complexity:
+    
+    O(nlogn)
+    
+  - Space complexity:
+    
+    O(1)
 */
 /**
  * @param {number[]} nums
