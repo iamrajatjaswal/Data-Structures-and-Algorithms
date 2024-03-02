@@ -51,6 +51,14 @@ solution using a different approach?
 */
 /*
   Appraoch 1
+
+  - Time complexity:
+    
+    O(n)
+    
+  - Space complexity:
+    
+    O(n)
 */
 function getMax(arr) {
   let max = arr[0];
