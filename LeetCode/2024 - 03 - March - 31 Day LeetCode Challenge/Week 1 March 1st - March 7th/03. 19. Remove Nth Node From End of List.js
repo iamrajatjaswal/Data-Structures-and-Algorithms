@@ -49,6 +49,11 @@ Output: [1]
 */
 /*
   Appraoch 1
+
+  - Time complexity: O(N)
+  
+  - Space complexity: O(1)
+  
 */
 /**
  * Definition for singly-linked list.
