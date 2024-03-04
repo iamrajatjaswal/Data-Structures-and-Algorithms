@@ -61,7 +61,23 @@ The maximum score achievable is `2`.
 
 */
 /*
-  Appraoch 1
+  Approach 1
+
+  1. **Time Complexity**:
+    - Sorting the tokens array takes O(n log n), where n is the number of elements in the tokens array.
+    - The while loop iterates at most n times, because each iteration either increments `left` or decrements `right`.
+    - Within the loop, the operations are constant time.
+    - Thus, the overall time complexity is O(n log n), dominated by the sorting operation.
+    
+  2. **Space Complexity**:
+    - Apart from the input `tokens` array, the solution uses a constant amount of extra space for integer variables.
+    - Thus, the space complexity is O(1), constant space complexity.
+
+  In summary:
+
+  - Time complexity: O(n log n)
+  - Space complexity: O(1)
+  
 */
 /**
  * @param {number[]} tokens
