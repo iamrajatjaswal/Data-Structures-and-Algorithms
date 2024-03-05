@@ -62,6 +62,11 @@ Explanation: An optimal sequence of operations is:
 */
 /*
   Approach 1
+
+  - Time complexity:O(n)
+  
+  - Space complexity:O(1)
+  
 */
 /**
  * @param {string} s
