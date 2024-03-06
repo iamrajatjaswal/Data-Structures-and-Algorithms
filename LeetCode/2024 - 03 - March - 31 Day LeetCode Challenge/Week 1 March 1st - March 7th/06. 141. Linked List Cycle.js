@@ -63,6 +63,11 @@ Explanation: There is no cycle in the linked list.
 */
 /*
   Approach 1
+
+  - **Time Complexity**: O(n)) — Each node is visited once.
+
+  - **Space Complexity**: O(n) — To store visited nodes.
+  
 */
 /**
  * Definition for singly-linked list.
