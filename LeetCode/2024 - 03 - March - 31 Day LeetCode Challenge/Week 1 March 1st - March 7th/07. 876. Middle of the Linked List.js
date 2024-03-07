@@ -45,3 +45,33 @@ Explanation: Since the list has two middle nodes with values 3 and 4, we return 
 **Solution**
 
 */
+/*
+  Approach 1
+*/
+/**
+ * Definition for singly-linked list.
+ * function ListNode(val, next) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.next = (next===undefined ? null : next)
+ * }
+ */
+/**
+ * @param {ListNode} head
+ * @return {ListNode}
+ */
+var middleNode = function (head) {
+  if (head === null || head.next === null) return head;
+
+  let fast = head;
+  let slow = head;
+
+  while (fast !== null) {
+    fast = fast.next;
+    if (fast !== null) {
+      fast = fast.next;
+      slow = slow.next;
+    }
+  }
+
+  return slow;
+};
