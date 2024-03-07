@@ -47,6 +47,10 @@ Explanation: Since the list has two middle nodes with values 3 and 4, we return 
 */
 /*
   Approach 1
+
+  - Time complexity:O(n)
+  
+  - Space complexity:O(1)
 */
 /**
  * Definition for singly-linked list.
