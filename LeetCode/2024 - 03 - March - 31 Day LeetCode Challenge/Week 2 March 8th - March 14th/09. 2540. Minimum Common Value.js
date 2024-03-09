@@ -44,6 +44,10 @@ Explanation: There are two common elements in the array 2 and 3 out of which 2 i
 */
 /*
   Approach 1
+
+  The time complexity of this solution is O(n + m), where n is the length of the nums1 array and m is the length of the nums2 array. This is because in the worst case scenario, you iterate through both arrays once.
+
+  The space complexity is O(1) because the only additional space used is for a few variables (common, i, and j), which do not depend on the size of the input arrays.
 */
 /**
  * @param {number[]} nums1
