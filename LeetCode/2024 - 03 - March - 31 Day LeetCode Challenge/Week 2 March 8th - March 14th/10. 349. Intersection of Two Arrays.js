@@ -40,6 +40,10 @@ Explanation: [4,9] is also accepted.
 */
 /*
   Approach 1
+
+  - Time complexity: Since we iterate through both arrays once, the time complexity is O(n1 + n2), where n1 is the size of `nums1` and n2 is the size of `nums2`.
+  
+  - Space complexity: We use extra space to store the counts of elements from `nums1`, so the space complexity is O(n1), where n1 is the size of `nums1`.
 */
 /**
  * @param {number[]} nums1
