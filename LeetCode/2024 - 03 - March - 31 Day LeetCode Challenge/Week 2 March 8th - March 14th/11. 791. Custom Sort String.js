@@ -48,6 +48,16 @@ Following the order of appearance in `order`, `"b"`, `"c"`, and `"a"` from�
 */
 /*
   Approach 1
+
+  - **Time complexity:**
+
+  Since we iterate through `order` and `s` once, the time complexity is
+  **O(n)**, where n is the length of the string `s`.
+
+  - **Space complexity:**
+
+  We utilize extra space for the hashmap and the result string. The space complexity is **O(n)** due to the hashmap and the result string.
+  
 */
 /**
  * @param {string} order
