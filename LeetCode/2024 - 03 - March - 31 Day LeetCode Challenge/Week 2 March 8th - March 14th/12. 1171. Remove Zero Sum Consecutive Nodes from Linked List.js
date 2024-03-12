@@ -51,6 +51,11 @@ Output: [1]
 */
 /*
   Approach 1
+
+  - Time complexity: O(n) - The entire list is traversed only once.
+  
+  - Space complexity: O(n) - In the worst case, the hash map could store an entry for each node if no zero-sum sublists are found or if they are found at the end.
+  
 */
 /**
  * Definition for singly-linked list.
