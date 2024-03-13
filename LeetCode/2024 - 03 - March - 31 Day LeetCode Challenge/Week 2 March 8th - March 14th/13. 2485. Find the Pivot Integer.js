@@ -51,3 +51,17 @@ Explanation: It can be proved that no such integer exist.
 **Solution**
 
 */
+/*
+  Approach 1
+*/
+/**
+ * @param {number} n
+ * @return {number}
+ */
+var pivotInteger = function (n) {
+  const sum = (n * (n + 1)) / 2;
+  const a = Math.sqrt(sum);
+
+  if (a - Math.ceil(a) === 0) return Math.floor(a);
+  else return -1;
+};
