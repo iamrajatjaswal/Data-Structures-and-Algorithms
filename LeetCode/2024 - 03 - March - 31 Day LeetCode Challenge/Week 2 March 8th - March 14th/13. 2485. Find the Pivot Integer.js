@@ -53,6 +53,11 @@ Explanation: It can be proved that no such integer exist.
 */
 /*
   Approach 1
+
+  - Time complexity: `O(1)`
+  
+  - Space complexity: `O(1)`
+  
 */
 /**
  * @param {number} n
