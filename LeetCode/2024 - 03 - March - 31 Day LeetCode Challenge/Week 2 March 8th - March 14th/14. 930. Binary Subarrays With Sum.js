@@ -49,6 +49,11 @@ Output: 15
 */
 /*
   Approach 1
+
+  - Time complexity:O(n)
+
+  - Space complexity:O(1)
+  
 */
 /**
  * @param {number[]} nums
