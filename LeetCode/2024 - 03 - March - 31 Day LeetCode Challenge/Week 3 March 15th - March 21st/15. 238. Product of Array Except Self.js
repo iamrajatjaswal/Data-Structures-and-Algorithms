@@ -46,6 +46,11 @@ Output: [0,0,9,0,0]
 */
 /*
   Approach 1
+
+  - Time complexity: O(n)
+  
+  - Space complexity: O(1)
+  
 */
 /**
  * @param {number[]} nums
