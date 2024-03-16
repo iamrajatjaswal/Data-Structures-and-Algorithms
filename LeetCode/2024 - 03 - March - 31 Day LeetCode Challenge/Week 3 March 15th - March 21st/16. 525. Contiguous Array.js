@@ -40,6 +40,11 @@ Explanation: [0, 1] (or [1, 0]) is a longest contiguous subarray with equal numb
 */
 /*
   Approach 1
+
+  - Time complexity: O(n)
+  
+  - Space complexity: O(n)
+  
 */
 /**
  * @param {number[]} nums
