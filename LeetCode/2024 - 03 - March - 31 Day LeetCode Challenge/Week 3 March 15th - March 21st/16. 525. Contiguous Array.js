@@ -38,3 +38,31 @@ Explanation: [0, 1] (or [1, 0]) is a longest contiguous subarray with equal numb
 **Solution**
 
 */
+/*
+  Approach 1
+*/
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var findMaxLength = function (nums) {
+  const hashmap = new Map();
+  let zeros = 0,
+    ones = 0,
+    maxLen = 0;
+
+  hashmap.set(0, -1);
+
+  for (let i = 0; i < nums.length; i++) {
+    nums[i] === 0 ? zeros++ : ones++;
+    const diff = zeros - ones;
+
+    if (hashmap.has(diff)) {
+      maxLen = Math.max(maxLen, i - hashmap.get(diff));
+    } else {
+      hashmap.set(diff, i);
+    }
+  }
+
+  return maxLen;
+};
