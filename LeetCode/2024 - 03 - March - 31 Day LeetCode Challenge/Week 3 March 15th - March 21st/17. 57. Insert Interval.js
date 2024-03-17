@@ -50,6 +50,11 @@ Explanation: Because the new interval [4,8] overlaps with [3,5],[6,7],[8,10].
 */
 /*
   Approach 1
+
+  - Time complexity: O(n), where n is the number of intervals. We iterate through all the intervals once.
+  
+  - Space complexity: O(n), the space used by the **result** list to store the merged intervals.
+  
 */
 /**
  * @param {number[][]} intervals
