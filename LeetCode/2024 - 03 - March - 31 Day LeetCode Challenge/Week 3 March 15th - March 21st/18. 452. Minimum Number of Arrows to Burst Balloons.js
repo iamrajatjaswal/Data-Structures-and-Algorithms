@@ -60,6 +60,11 @@ Explanation: The balloons can be burst by 2 arrows:
 */
 /*
   Approach 1
+
+  - Time complexity: O(n*log(n))
+
+  - Space complexity: O(1)
+  
 */
 /**
  * @param {number[][]} points
