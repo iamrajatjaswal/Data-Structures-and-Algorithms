@@ -58,6 +58,15 @@ separated by 3 intervals. This leads to idling twice between repetitions
 */
 /*
   Approach 1
+
+  - Time complexity:O(n)
+  Counting task frequencies: O(n), where n is the number of tasks.
+  Sorting the frequency array: O(26 log 26) ≈ O(1)
+  Loop to calculate intervals: O(26) ≈ O(1)
+  Overall: O(n + 1) ≈ O(n)
+  
+  - Space complexity:Array for frequency: O(26) ≈ O(1)
+  
 */
 /**
  * @param {character[]} tasks
