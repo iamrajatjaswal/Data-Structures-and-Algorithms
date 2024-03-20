@@ -53,6 +53,11 @@ Explanation: The blue edges and nodes in the above figure indicate the result.
 */
 /*
   Approach 1
+
+  - Time complexity: O(n), where n is the size of `list1` since we traverse it once to find the positions.
+  
+  - Space complexity: O(1), as we use a constant amount of extra space.
+  
 */
 /**
  * Definition for singly-linked list.
