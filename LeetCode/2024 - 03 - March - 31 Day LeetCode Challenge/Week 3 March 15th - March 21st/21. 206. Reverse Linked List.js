@@ -82,7 +82,11 @@ var reverseList = function (head) {
 };
 
 /*
-  Approach 2 :: Recursive approach :: T → O(N) : S → O(N)  
+  Approach 2 :: Recursive approach :: T → O(N) : S → O(N)
+
+  - Time complexity: O(N)
+
+  - Space complexity: O(N)  
 */
 /**
  * Definition for singly-linked list.
