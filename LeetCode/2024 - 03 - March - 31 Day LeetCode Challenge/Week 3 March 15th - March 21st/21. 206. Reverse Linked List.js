@@ -52,6 +52,10 @@ Output: []
 */
 /*
   Approach 1 :: Iterative approach :: T → O(N) : S → O(N)
+
+  - Time complexity: O(N)
+
+  - Space complexity: O(N)  
 */
 /**
  * Definition for singly-linked list.
