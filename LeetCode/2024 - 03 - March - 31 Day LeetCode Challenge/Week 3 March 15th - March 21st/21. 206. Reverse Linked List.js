@@ -80,3 +80,42 @@ var reverseList = function (head) {
   }
   return prev;
 };
+
+/*
+  Approach 2 :: Recursive approach :: T → O(N) : S → O(N)  
+*/
+/**
+ * Definition for singly-linked list.
+ * function ListNode(val, next) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.next = (next===undefined ? null : next)
+ * }
+ */
+/**
+ * Definition for singly-linked list.
+ * function ListNode(val, next) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.next = (next===undefined ? null : next)
+ * }
+ */
+/**
+ * @param {ListNode} head
+ * @return {ListNode}
+ */
+var reverseList = function (head) {
+  if (head === null || head.next === null) return head;
+
+  var reverse = function (curr) {
+    if (curr === null || curr.next === null) return curr;
+
+    var nextNode = curr.next;
+    var reversedHead = reverse(nextNode);
+
+    curr.next = null;
+    nextNode.next = curr;
+
+    return reversedHead;
+  };
+
+  return reverse(head);
+};
