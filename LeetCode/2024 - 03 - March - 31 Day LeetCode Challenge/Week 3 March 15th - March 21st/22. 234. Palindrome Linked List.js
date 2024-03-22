@@ -46,6 +46,11 @@ Could you do it in time and `O(n)` space? `O(1)`
 */
 /*
   Approach 1
+
+  - Time complexity: O(N)
+
+  - Space complexity: O(1)  
+  
 */
 /**
  * Definition for singly-linked list.
