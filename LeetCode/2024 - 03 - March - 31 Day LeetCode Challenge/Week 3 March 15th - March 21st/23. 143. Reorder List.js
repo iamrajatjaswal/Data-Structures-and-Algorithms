@@ -102,6 +102,20 @@ var reorderList = function (head) {
 
 /*
   Approach 2
+
+  **Time Complexity:**
+
+  - Finding the middle of the linked list: This requires traversing the list once, which takes O(n) time, where n is the number of nodes in the linked list.
+  - Reversing the second half of the list: This also requires traversing the second half of the list once, which takes O(n/2) time in the worst case.
+  - Merging the two halves: This step also requires traversing through both halves once, which takes O(n/2) time in the worst case.
+  - Therefore, the overall time complexity is O(n), where n is the number of nodes in the linked list.
+
+  **Space Complexity:**
+
+  - The algorithm uses a constant amount of extra space regardless of the size of the input linked list.
+  - It doesn't use any additional data structures that scale with the size of the input.
+  - Thus, the space complexity is O(1), indicating constant extra space usage.
+  
 */
 /**
  * Definition for singly-linked list.
