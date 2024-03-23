@@ -53,3 +53,35 @@ Output: [1,5,2,4,3]
 **Solution**
 
 */
+/*
+  Approach 1
+*/
+/**
+ * Definition for singly-linked list.
+ * function ListNode(val, next) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.next = (next===undefined ? null : next)
+ * }
+ */
+/**
+ * @param {ListNode} head
+ * @return {void} Do not return anything, modify head in-place instead.
+ */
+var reorderList = function (head) {
+  // base case i.e if the linked list has zero, one, or two elements just return it
+  if (!head || !head.next || !head.next.next) return;
+
+  // Find the penultimate node i.e second last node of the linked list
+  let penultimate = head;
+  while (penultimate.next.next) penultimate = penultimate.next;
+
+  // Link the penultimate with the second element
+  penultimate.next.next = head.next;
+  head.next = penultimate.next;
+
+  // Again set the penultimate to the last
+  penultimate.next = null;
+
+  // Do the above steps recursively
+  reorderList(head.next.next);
+};
