@@ -55,6 +55,20 @@ Output: [1,5,2,4,3]
 */
 /*
   Approach 1
+
+  **Time Complexity:**
+
+  - The solution traverses the linked list once to find the penultimate node.
+  - Each traversal of the linked list takes linear time, proportional to the number of nodes.
+  - Therefore, the time complexity of the solution is O(n), where n is the number of nodes in the linked list.
+
+
+  **Space Complexity:**
+
+  - The solution uses only a constant amount of additional space, regardless of the size of the input linked list.
+  - It does not create any additional data structures that grow with the size of the input.
+  - Thus, the space complexity is O(1), indicating constant extra space usage.
+  
 */
 /**
  * Definition for singly-linked list.
