@@ -99,3 +99,56 @@ var reorderList = function (head) {
   // Do the above steps recursively
   reorderList(head.next.next);
 };
+
+/*
+  Approach 2
+*/
+/**
+ * Definition for singly-linked list.
+ * function ListNode(val, next) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.next = (next===undefined ? null : next)
+ * }
+ */
+/**
+ * @param {ListNode} head
+ * @return {void} Do not return anything, modify head in-place instead.
+ */
+var reorderList = function (head) {
+  // Base case: linked list is empty
+  if (!head) return;
+
+  // Finding the middle with the help of two pointer approach
+  let tmp = head,
+    half = head,
+    prev = null;
+  while (tmp.next && tmp.next.next) {
+    tmp = tmp.next.next;
+    half = half.next;
+  }
+
+  // Adding one bit in case of lists with even length
+  if (tmp.next) half = half.next;
+
+  // Now reverse the second half
+  while (half) {
+    tmp = half.next;
+    half.next = prev;
+    prev = half;
+    half = tmp;
+  }
+  half = prev;
+
+  // After reversing the second half, let's merge both halves
+  while (head && half) {
+    tmp = head.next;
+    prev = half.next;
+    head.next = half;
+    half.next = tmp;
+    head = tmp;
+    half = prev;
+  }
+
+  // Base case: closing when we had even-length arrays
+  if (head && head.next) head.next.next = null;
+};
