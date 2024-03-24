@@ -56,6 +56,13 @@ Output: 3
 */
 /*
   Approach 1
+
+  - **Time Complexity**: 
+    O(n) because we iterate through the array once.
+
+  - **Space Complexity**: 
+    O(n) for storing the set.
+      
 */
 /**
  * @param {number[]} nums
