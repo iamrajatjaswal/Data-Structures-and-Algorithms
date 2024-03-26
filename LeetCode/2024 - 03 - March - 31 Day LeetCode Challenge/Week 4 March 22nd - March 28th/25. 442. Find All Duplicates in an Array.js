@@ -51,6 +51,10 @@ Output: []
 */
 /*
   Approach 1
+
+  - Time Complexity: The time complexity of this approach is O(n), where n is the number of elements in the input array nums. We iterate through the array once.
+
+  - Space Complexity: The space complexity is O(1) for the std::bitset of size 100001, and O(k) for the result vector, where k is the number of duplicate elements found in the input array nums. Thus, the overall space complexity is O(k).
 */
 /**
  * @param {number[]} nums
