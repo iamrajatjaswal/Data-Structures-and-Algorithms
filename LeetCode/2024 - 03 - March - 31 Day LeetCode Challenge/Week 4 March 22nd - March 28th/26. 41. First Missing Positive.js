@@ -51,6 +51,18 @@ Explanation: The smallest positive integer 1 is missing.
 */
 /*
   Approach 1
+
+  **Time Complexity :**
+    - The code has three main iterations through the array:
+        - Marking encountered numbers in the unordered map (`O(n)`)
+        - Checking for missing positives (`O(n)`)
+        - Handling all positives present (`O(n)`)
+    - Total time complexity: O(n)
+
+  **Space Complexity :**
+    - The code uses an unordered map (`mp`) to store encountered numbers.
+    - However, the size of the unordered map is limited by the array size and the problem constraint that elements are integers. In essence, it's constant space complexity (O(1)).
+  
 */
 /**
  * @param {number[]} nums
