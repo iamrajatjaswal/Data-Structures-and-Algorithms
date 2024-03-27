@@ -43,6 +43,15 @@ Output: 0
 */
 /*
   Approach 1 :: Sliding Window :: T->O(N) : S->O(1)
+
+  - Time Complexity: **O(n)**
+    - The algorithm iterates through the input array **`nums`** once, where **`n`** is the length of the array.
+    - Each element in the array is processed at most twice (once when it's included in the product and once when it's excluded).
+    - Therefore, the time complexity is linear.
+
+  - Space Complexity: **O(1)**
+    - The algorithm uses a fixed number of variables (**`prod`**, **`res`**, and **`left`**) regardless of the size of the input array.
+    - Therefore, the space complexity is constant.
 */
 /**
  * @param {number[]} nums
