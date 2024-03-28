@@ -61,7 +61,16 @@ It can be shown that there are no good subarrays with length more than 4.
 
 */
 /*
-  Approach 1
+  Approach 1 :: Sliding Window :: T->O(N) : S->O(1)
+
+  - *Time complexity:*
+    
+    O(n)
+    
+- *Space complexity:*
+    
+    O(n)
+  
 */
 /**
  * @param {number[]} nums
