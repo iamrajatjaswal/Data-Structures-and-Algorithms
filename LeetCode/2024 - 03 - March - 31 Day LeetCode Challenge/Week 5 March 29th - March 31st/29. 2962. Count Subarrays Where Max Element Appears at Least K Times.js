@@ -46,6 +46,14 @@ Explanation: No subarray contains the element 4 at least 3 times.
 */
 /*
   Approach 1 :: Sliding Window :: T->O(N) : S->O(1)
+
+  - *Time complexity:*
+    
+    O(n)
+    
+  - *Space complexity:*
+    
+    O(1)  
 */
 /**
  * @param {number[]} nums
