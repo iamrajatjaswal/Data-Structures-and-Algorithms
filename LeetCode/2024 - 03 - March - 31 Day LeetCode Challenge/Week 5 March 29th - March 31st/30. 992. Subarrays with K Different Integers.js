@@ -46,7 +46,15 @@ Explanation: Subarrays formed with exactly 3 different integers: [1,2,1,3], [2,1
 
 */
 /*
-  Approach 1
+  Approach 1 :: Sliding Window :: T->O(N) : S->O(N)
+
+  - Time Complexity:
+    
+    **O(n)**, where *n* is the number of elements in the input array **`nums`**. This is because the solution iterates through the array once using two pointers (**`left`** and **`right`**), and at each iteration, it performs constant-time operations on the map (insertion, deletion, and retrieval), which do not depend on the size of the input array.
+    
+  - Space Complexity:
+    
+    **O(n)**, where *n* is the number of elements in the input array **`nums`**. This is because the solution uses a map to store the frequency of elements within the sliding window, and the size of this map can grow linearly with the size of the input array in the worst case.
 */
 /**
  * @param {number[]} nums
