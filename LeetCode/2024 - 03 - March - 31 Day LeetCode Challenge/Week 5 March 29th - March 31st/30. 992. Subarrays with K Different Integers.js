@@ -45,3 +45,34 @@ Explanation: Subarrays formed with exactly 3 different integers: [1,2,1,3], [2,1
 **Solution**
 
 */
+/*
+  Approach 1
+*/
+/**
+ * @param {number[]} nums
+ * @param {number} k
+ * @return {number}
+ */
+var subarraysWithKDistinct = function (nums, k) {
+  const sub_with_max_element_k = subarrayWithAtmostK(nums, k);
+  const reduced_sub_with_max_k = subarrayWithAtmostK(nums, k - 1);
+  return sub_with_max_element_k - reduced_sub_with_max_k;
+};
+
+var subarrayWithAtmostK = function (nums, k) {
+  const map = new Map();
+  let left = 0,
+    right = 0,
+    ans = 0;
+  while (right < nums.length) {
+    map.set(nums[right], (map.get(nums[right]) || 0) + 1);
+    while (map.size > k) {
+      map.set(nums[left], map.get(nums[left]) - 1);
+      if (map.get(nums[left]) === 0) map.delete(nums[left]);
+      left++;
+    }
+    ans += right - left + 1; // basically the size of subarray;
+    right++;
+  }
+  return ans;
+};
