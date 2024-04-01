@@ -50,7 +50,15 @@ Explanation: The last word is "joyboy" with length 6.
 
 */
 /*
-  Appraoch 1
+  Appraoch 1 :: Linear Scan / Linear Traversal :: T->O(N) : S->O(1)
+
+  - Time complexity:
+    
+    The time complexity of this approach is O(n), where n is the length of the input string. We iterate through the string once to determine the length of the last word.
+    
+  - Space complexity:
+    
+    The space complexity of this approach is O(1) since we are using a constant amount of additional space to store the count and the space flag, regardless of the size of the input string.
 */
 /**
  * @param {string} s
