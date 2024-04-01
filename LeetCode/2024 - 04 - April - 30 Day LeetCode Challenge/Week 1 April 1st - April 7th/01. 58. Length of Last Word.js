@@ -49,3 +49,30 @@ Explanation: The last word is "joyboy" with length 6.
 **Solution**
 
 */
+/*
+  Appraoch 1
+*/
+/**
+ * @param {string} s
+ * @return {number}
+ */
+var lengthOfLastWord = function (s) {
+  let count = 0; // Variable to store the length of the last word
+  let space = false; // Boolean variable to track if a space is encountered
+
+  // Iterate through each character in the string
+  for (let i = 0; i < s.length; i++) {
+    if (s[i] === " ") {
+      // If a space character is encountered
+      space = true;
+    } else if (s[i] !== " " && space) {
+      // If a non-space character is encountered after a space
+      count = 1; // Start counting a new word
+      space = false;
+    } else {
+      count++; // Increment the count for non-space characters
+    }
+  }
+
+  return count;
+};
