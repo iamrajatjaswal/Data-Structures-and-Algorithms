@@ -63,7 +63,7 @@ Output: false
 
   **Time complexity:**
 
-    O(m∗n∗4l)O(m * n * 4^l), where m and n are the dimensions of the grid and l is the length of the word. The 4^l factor represents the maximum number of recursive calls we may have to make for each starting cell.
+    O(m * n * 4^l), where m and n are the dimensions of the grid and l is the length of the word. The 4^l factor represents the maximum number of recursive calls we may have to make for each starting cell.
 
   **Space complexity:**
 
