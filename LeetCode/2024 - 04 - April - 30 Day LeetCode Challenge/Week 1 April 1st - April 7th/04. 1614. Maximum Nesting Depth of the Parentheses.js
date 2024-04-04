@@ -55,7 +55,7 @@ Output: 3
 
 */
 /*
-  Approach 1 :: T->O(N) : S->O(1)
+  Approach 1 :: "parentheses balancing" or "stack-based approach” :: T->O(N) : S->O(1)
 
   **Time complexity:**
 
