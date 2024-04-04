@@ -55,7 +55,16 @@ Output: 3
 
 */
 /*
-  Approach 1    
+  Approach 1 :: T->O(N) : S->O(1)
+
+  **Time complexity:**
+
+    O(n), where n is the length of the input string `s`. We traverse the entire string once.
+
+  **Space complexity:**
+
+    O(1), as we only use a constant amount of extra space for variables `count` and `max_num`.
+    
 */
 /**
  * @param {string} s
