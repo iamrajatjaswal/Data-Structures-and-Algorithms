@@ -61,7 +61,15 @@ Output: "s"
 
 */
 /*
-  Approach 1 :: "stack-based approach”
+  Approach 1 :: "stack-based approach” :: T->O(N) : S->O(N)
+  
+  **Time complexity:**
+
+  We iterate through each character of the input string once, resulting in a time complexity of `O(n)`, where `n` is the length of the string.
+
+  **Space complexity:**
+
+  We utilize a stack to store characters. In the worst-case scenario, we might end up storing all characters in the stack. Therefore, the space complexity is `O(n)`, where `n` is the length of the string.
 
 */
 /**
