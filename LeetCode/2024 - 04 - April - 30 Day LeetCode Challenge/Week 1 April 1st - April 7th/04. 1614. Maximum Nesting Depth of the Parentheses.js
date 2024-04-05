@@ -9,77 +9,54 @@ Topics: String, Stack
 **Problem**
 
 
-A string is a **valid parentheses string** (denoted **VPS**) if it meets one of the following:
+Given a string `s` of lower and upper case English letters.
 
-- It is an empty string `""`, or a single character not equal to `"("` or `")"`,
-- It can be written as `AB` (`A` concatenated with `B`), where `A` and `B` are **VPS**'s, or
-- It can be written as `(A)`, where `A` is a **VPS**.
+A good string is a string which doesn't have **two adjacent characters** `s[i]` and `s[i + 1]` where:
 
-We can similarly define the **nesting depth** `depth(S)` of any VPS `S` as follows:
+- `0 <= i <= s.length - 2`
+- `s[i]` is a lower-case letter and `s[i + 1]` is the same letter but in upper-case or **vice-versa**.
 
-- `depth("") = 0`
-- `depth(C) = 0`, where `C` is a string with a single character not equal to `"("` or `")"`.
-- `depth(A + B) = max(depth(A), depth(B))`, where `A` and `B` are **VPS**'s.
-- `depth("(" + A + ")") = 1 + depth(A)`, where `A` is a **VPS**.
+To make the string good, you can choose **two adjacent** characters that make the string bad and remove them. You can keep doing this until the string becomes good.
 
-For example, `""`, `"()()"`, and `"()(()())"` are **VPS**'s (with nesting depths 0, 1, and 2), and `")("` and `"(()"` are not **VPS**'s.
+Return *the string* after making it good. The answer is guaranteed to be unique under the given constraints.
 
-Given a **VPS** represented as string `s`, return *the **nesting depth** of* `s`.
+**Notice** that an empty string is also good.
 
 **Example 1:**
 
 ```
-Input: s = "(1+(2*3)+((8)/4))+1"
-Output: 3
-Explanation: Digit 8 is inside of 3 nested parentheses in the string.
+Input: s = "leEeetcode"
+Output: "leetcode"
+Explanation: In the first step, either you choose i = 1 or i = 2, both will result "leEeetcode" to be reduced to "leetcode".
 
 ```
 
 **Example 2:**
 
 ```
-Input: s = "(1)+((2))+(((3)))"
-Output: 3
+Input: s = "abBAcC"
+Output: ""
+Explanation: We have many possible scenarios, and all lead to the same answer. For example:
+"abBAcC" --> "aAcC" --> "cC" --> ""
+"abBAcC" --> "abBA" --> "aA" --> ""
+
+```
+
+**Example 3:**
+
+```
+Input: s = "s"
+Output: "s"
 
 ```
 
 **Constraints:**
 
 - `1 <= s.length <= 100`
-- `s` consists of digits `0-9` and characters `'+'`, `'-'`, `'*'`, `'/'`, `'('`, and `')'`.
-- It is guaranteed that parentheses expression `s` is a **VPS**.
+- `s` contains only lower and upper case English letters.
 
 
 
 **Solution**
 
 */
-/*
-  Approach 1 :: "parentheses balancing" or "stack-based approach” :: T->O(N) : S->O(1)
-
-  **Time complexity:**
-
-    O(n), where n is the length of the input string `s`. We traverse the entire string once.
-
-  **Space complexity:**
-
-    O(1), as we only use a constant amount of extra space for variables `count` and `max_num`.
-    
-*/
-/**
- * @param {string} s
- * @return {number}
- */
-var maxDepth = function (s) {
-  let count = 0;
-  let maxNum = 0;
-  for (let c of s) {
-    if (c === "(") {
-      count++;
-      if (maxNum < count) maxNum = count;
-    } else if (c === ")") {
-      count--;
-    }
-  }
-  return maxNum;
-};
