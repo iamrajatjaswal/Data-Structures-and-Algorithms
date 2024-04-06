@@ -107,3 +107,46 @@ var minRemoveToMakeValid = function (s) {
 
   return res;
 };
+
+/*
+  Approach 2 :: "Using Stack" :: T->O(N) : S->O(N)
+*/
+/**
+ * @param {string} s
+ * @return {string}
+ */
+var minRemoveToMakeValid = function (s) {
+  const stack = [];
+  let res = "";
+
+  for (let i = 0; i < s.length; ++i) {
+    // if we find an open parenthesis push its index to stack
+    if (s[i] === "(") stack.push(i);
+    // if we find a close parenthesis
+    else if (s[i] === ")") {
+      // if stack is empty then we need to remove that index from string
+      // replacing it with '#' for our convenience
+      if (stack.length === 0) s = s.substring(0, i) + "#" + s.substring(i + 1);
+      // if there is an open parenthesis then remove that from the stack
+      else stack.pop();
+    }
+  }
+
+  // now, if stack is not empty that means it has open parenthesis
+  // which have no closing parenthesis.
+  // so we have to replace that index of string with '#' for our convenience
+  while (stack.length > 0) {
+    s =
+      s.substring(0, stack[stack.length - 1]) +
+      "#" +
+      s.substring(stack[stack.length - 1] + 1);
+    stack.pop();
+  }
+
+  // making the resultant string by excluding '#'
+  for (let i = 0; i < s.length; ++i) {
+    if (s[i] !== "#") res += s[i];
+  }
+
+  return res;
+};
