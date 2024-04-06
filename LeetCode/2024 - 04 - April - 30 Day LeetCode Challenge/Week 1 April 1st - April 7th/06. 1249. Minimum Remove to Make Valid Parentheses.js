@@ -55,3 +55,51 @@ Explanation: An empty string is also valid.
 **Solution**
 
 */
+/*
+  Approach 1 :: "Iterating the string from beginning" :: T->O(N) : S->O(1)
+*/
+/**
+ * @param {string} s
+ * @return {string}
+ */
+var minRemoveToMakeValid = function (s) {
+  let n = s.length;
+  let res = "";
+
+  let cnt = 0;
+  // iterating from beginning
+  for (let i = 0; i < s.length; ++i) {
+    // if we find an open parenthesis increase the cnt
+    if (s[i] === "(") ++cnt;
+    // if we found a close parenthesis
+    // check if cnt == 0, that means we have no earlier open parenthesis,
+    // therefore replace that index by '#'
+    else if (s[i] === ")") {
+      if (cnt === 0) s = s.substring(0, i) + "#" + s.substring(i + 1);
+      // else decrease the cnt because a valid pair is found
+      else --cnt;
+    }
+  }
+
+  cnt = 0;
+  // iterating from the end
+  for (let i = n - 1; i >= 0; --i) {
+    // if we find a close parenthesis increase the cnt
+    if (s[i] === ")") ++cnt;
+    // if we found an open parenthesis
+    // check if cnt == 0, that means we have no earlier close parenthesis,
+    // therefore replace that index by '#'
+    else if (s[i] === "(") {
+      if (cnt === 0) s = s.substring(0, i) + "#" + s.substring(i + 1);
+      // else decrease the cnt because a valid pair is found
+      else --cnt;
+    }
+  }
+
+  // making the resultant string by excluding '#'
+  for (let i = 0; i < s.length; ++i) {
+    if (s[i] !== "#") res += s[i];
+  }
+
+  return res;
+};
