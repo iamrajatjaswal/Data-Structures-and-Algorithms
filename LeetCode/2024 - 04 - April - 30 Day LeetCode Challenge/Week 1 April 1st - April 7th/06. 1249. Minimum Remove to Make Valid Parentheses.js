@@ -110,6 +110,10 @@ var minRemoveToMakeValid = function (s) {
 
 /*
   Approach 2 :: "Using Stack" :: T->O(N) : S->O(N)
+
+  - **Time Complexity** is **O(n)**
+  
+  - **Space Complexity** is **O(n)** , stack used.
 */
 /**
  * @param {string} s
