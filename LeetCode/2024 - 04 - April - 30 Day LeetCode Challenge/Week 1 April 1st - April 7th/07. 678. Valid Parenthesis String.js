@@ -52,3 +52,30 @@ Output: true
 **Solution**
 
 */
+/*
+  Approach 1 :: "Iterating the string from beginning" :: T->O(N) : S->O(1)
+*/
+/**
+ * @param {string} s
+ * @return {boolean}
+ */
+var checkValidString = function(s) {
+  let cmin = 0, cmax = 0;
+  for (let i = 0; i < s.length; i++) {
+      const c = s[i];
+      if (c === '(') {
+          cmax++;
+          cmin++;
+      }
+      if (c === ')') {
+          cmax--;
+          cmin = Math.max(cmin - 1, 0);
+      }
+      if (c === '*') {
+          cmax++;
+          cmin = Math.max(cmin - 1, 0);
+      }
+      if (cmax < 0) return false;
+  }
+  return cmin === 0;
+};
