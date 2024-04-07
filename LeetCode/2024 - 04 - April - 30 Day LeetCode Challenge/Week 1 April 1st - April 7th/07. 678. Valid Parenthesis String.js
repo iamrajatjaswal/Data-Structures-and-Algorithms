@@ -54,6 +54,12 @@ Output: true
 */
 /*
   Approach 1 :: "Iterating the string from beginning" :: T->O(N) : S->O(1)
+
+  ## **Time Complexity:**
+  One pass `O(N)` time
+
+  ## **Space Complexity:**
+  `O(1)`
 */
 /**
  * @param {string} s
