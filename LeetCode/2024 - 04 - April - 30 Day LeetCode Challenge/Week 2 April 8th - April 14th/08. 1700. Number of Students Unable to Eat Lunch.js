@@ -60,6 +60,13 @@ Output: 3
 */
 /*
   Approach 1 :: "Greedy Algorithm" :: T->O(N) : S->O(1)
+
+  -- Time Complexity:
+    O(n), where n is the number of students. We iterate through the students and sandwiches arrays once.
+  
+    -- Space Complexity:
+    O(1) in terms of auxiliary space as we use a constant amount of space to store counts.
+  
 */
 /**
  * @param {number[]} students
