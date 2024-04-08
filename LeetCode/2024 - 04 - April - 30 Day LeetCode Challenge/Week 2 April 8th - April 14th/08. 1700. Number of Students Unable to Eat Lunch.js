@@ -58,3 +58,25 @@ Output: 3
 **Solution**
 
 */
+/*
+  Approach 1 :: "Greedy Algorithm" :: T->O(N) : S->O(1)
+*/
+/**
+ * @param {number[]} students
+ * @param {number[]} sandwiches
+ * @return {number}
+ */
+var countStudents = function (students, sandwiches) {
+  let counts = [0, 0];
+  for (let student of students) counts[student]++;
+
+  let remaining = sandwiches.length;
+  for (let sandwich of sandwiches) {
+    if (counts[sandwich] === 0) break;
+    if (remaining === 0) break;
+    counts[sandwich]--;
+    remaining--;
+  }
+
+  return remaining;
+};
