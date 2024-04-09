@@ -55,6 +55,14 @@ The person at position 0 has successfully bought 5 tickets and it took 4 + 1 + 
 */
 /*
   Approach 1 :: "Simulation" :: T->O(N) : S->O(1)
+
+  -- **Time complexity:**
+    The algorithm iterates through each person in the queue once, so the time complexity of the loop is `O(n)`, where n is the number of people in the queue.
+
+  -- **Space complexity:**
+    The algorithm uses only a constant amount of extra space for variables such as `total`, `i`, and `x`.
+    Therefore, the space complexity is `O(1)`.
+  
 */
 /**
  * @param {number[]} tickets
