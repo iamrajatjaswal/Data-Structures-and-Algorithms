@@ -62,7 +62,11 @@ Output: [1,1000]
 
 */
 /*
-  Approach 1 :: "Simulation"
+  Approach 1 :: "Simulation" :: T->O(NlogN) : S->O(N)
+
+  - Time complexity: `O(Nlog⁡N)` due to sorting, where `N` is the number of cards in the deck.
+
+  - Space complexity: `O(N)` for the result array and recursive stack space.
 */
 /**
  * @param {number[]} deck
