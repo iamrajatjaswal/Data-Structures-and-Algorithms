@@ -61,3 +61,33 @@ Output: [1,1000]
 **Solution**
 
 */
+/*
+  Approach 1 :: "Simulation"
+*/
+/**
+ * @param {number[]} deck
+ * @return {number[]}
+ */
+var deckRevealedIncreasing = function (deck) {
+  const N = deck.length;
+  const result = new Array(N).fill(0);
+  deck.sort((a, b) => a - b);
+  everyOther(deck, result, 0, 0, false);
+  return result;
+};
+
+function everyOther(deck, result, indexInDeck, indexInResult, skip) {
+  const N = deck.length;
+  if (indexInDeck === N) return;
+  while (indexInResult < N) {
+    if (result[indexInResult] === 0) {
+      if (!skip) {
+        result[indexInResult] = deck[indexInDeck];
+        indexInDeck++;
+      }
+      skip = !skip;
+    }
+    indexInResult++;
+  }
+  everyOther(deck, result, indexInDeck, 0, skip);
+}
