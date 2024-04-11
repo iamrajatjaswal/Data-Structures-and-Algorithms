@@ -50,7 +50,11 @@ Explanation: Remove all the digits from the number and it is left with nothing w
 
 */
 /*
-  Approach 1 :: "Stack Approach"
+  Approach 1 :: "Stack Approach" :: T->O(n) : S->O(n)
+
+  - Time complexity: O(n)
+
+  - Space complexity:O(1)only returning string take space. we have to mandatory return it so it can not be counted as extra space
 */
 /**
  * @param {string} num
