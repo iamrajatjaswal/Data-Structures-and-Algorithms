@@ -84,3 +84,40 @@ var removeKdigits = function (num, k) {
   return ans.length === 0 ? "0" : ans;
 };
 
+/*
+  Approach 2 :: "Without Stack"
+*/
+/**
+ * @param {string} num
+ * @param {number} k
+ * @return {string}
+ */
+var removeKdigits = function (num, k) {
+  let s = num[0];
+  for (let i = 1; i < num.length; ++i) {
+    // if removal attempts are left (k > 0)
+    // and num[i] is less than the last element of s
+    // then remove the last element of s and come back to num[i] again
+    if (k > 0 && s.length > 0 && num[i] < s[s.length - 1]) {
+      s = s.slice(0, -1);
+      k--;
+      i--;
+      continue;
+    } else s += num[i];
+  }
+  // if removal attempts are left, remove characters at the end
+  // because at this point s contains characters in ascending order
+  // so preferable to remove larger characters at the end
+  while (k > 0 && s.length > 0) {
+    s = s.slice(0, -1);
+    k--;
+  }
+
+  while (s[0] === "0") {
+    // remove trailing zeroes if any
+    s = s.substr(1);
+  }
+
+  if (s.length === 0) s = "0"; // if final s is empty then indicates 0
+  return s;
+};
