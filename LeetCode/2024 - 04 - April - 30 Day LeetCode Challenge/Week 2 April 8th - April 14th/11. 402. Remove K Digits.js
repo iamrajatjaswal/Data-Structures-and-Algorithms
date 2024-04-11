@@ -85,7 +85,11 @@ var removeKdigits = function (num, k) {
 };
 
 /*
-  Approach 2 :: "Without Stack"
+  Approach 2 :: "Without Stack" :: T->O(n) : S->O(1)
+
+  - Time complexity: O(n)
+
+  - Space complexity:O(1)only returning string take space. we have to mandatory return it so it can not be counted as extra space
 */
 /**
  * @param {string} num
