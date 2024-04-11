@@ -49,3 +49,34 @@ Explanation: Remove all the digits from the number and it is left with nothing w
 **Solution**
 
 */
+/*
+  Approach 1 :: "Stack Approach"
+*/
+/**
+ * @param {string} num
+ * @param {number} k
+ * @return {string}
+ */
+var removeKdigits = function (num, k) {
+  let stk = [];
+  let ans = "";
+  for (let i = 0; i < num.length; i++) {
+    let c = num[i];
+    while (k > 0 && stk.length > 0 && stk[stk.length - 1] > c) {
+      stk.pop();
+      k--;
+    }
+    stk.push(c);
+  }
+  while (k > 0) {
+    stk.pop();
+    k--;
+  }
+  for (let i = 0; i < stk.length; i++) {
+    let c = stk[i];
+    if (ans.length === 0 && c === "0") continue;
+    ans += c;
+  }
+  return ans.length === 0 ? "0" : ans;
+};
+
