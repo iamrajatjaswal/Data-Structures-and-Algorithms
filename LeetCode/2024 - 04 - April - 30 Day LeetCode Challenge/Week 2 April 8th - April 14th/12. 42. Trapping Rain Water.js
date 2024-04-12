@@ -42,7 +42,24 @@ Output: 9
 
 */
 /*
-  Approach 1 :: "Two Pointer Approach" 
+  Approach 1 :: "Two Pointer Approach" :: T->O(n) : S->O(1)
+
+  Time Complexity:
+
+    The solution involves a single pass through the array with two pointers (i and j) moving towards each other until they meet.
+    During each iteration of the loop, constant time operations are performed, such as comparisons and updates of left_max and right_max.
+    Therefore, the time complexity is O(n), where n is the length of the input array height.
+
+  Space Complexity:
+
+      The solution uses a constant amount of extra space regardless of the size of the input array.
+      It only maintains a few variables (i, j, left_max, right_max, sum), irrespective of the size of the input.
+      Hence, the space complexity is O(1), indicating constant space complexity.
+
+  In summary:
+
+      Time complexity: O(n)
+      Space complexity: O(1)
 */
 /**
  * @param {number[]} height
