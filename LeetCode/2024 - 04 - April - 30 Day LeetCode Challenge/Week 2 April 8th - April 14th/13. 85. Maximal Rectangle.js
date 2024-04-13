@@ -51,7 +51,13 @@ Output: 1
 
 */
 /*
-  Approach 1 :: "Histogram Approach"
+  Approach 1 :: "Histogram Approach" :: T->O(m * n) : S->O(n)
+
+  - Time Complexity:
+    - O(m * n), where m represents the number of rows and n denotes the number of columns in the input matrix. This complexity arises from traversing each cell in the matrix twice: once to compute the left, right, and height arrays, and then to calculate the maximal rectangle area.
+  
+  - Space Complexity:
+    - O(n), where n signifies the number of columns in the input matrix. We employ three arrays (left, right, and height), each sized n, to store column-specific information. Additionally, a few extra variables are used for computation, but they have a negligible impact on the space complexity.
 */
 /**
  * @param {character[][]} matrix
