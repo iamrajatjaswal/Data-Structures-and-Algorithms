@@ -44,7 +44,7 @@ Output: 0
 
 */
 /*
-  Approach 1
+  Approach 1 :: “Recursive DFS” :: T→O(n) : S→O(h)
 
   ***Time Complexity:***
 
