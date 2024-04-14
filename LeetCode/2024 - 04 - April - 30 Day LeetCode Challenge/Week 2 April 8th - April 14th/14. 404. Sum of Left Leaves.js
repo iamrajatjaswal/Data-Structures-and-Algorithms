@@ -43,3 +43,36 @@ Output: 0
 **Solution**
 
 */
+/*
+  Approach 1
+
+  ***Time Complexity:***
+
+  **`O(N)`**, where `N`is the number of nodes in the given binary tree. It is a standard DFS traversal technique where each node is visited once.
+
+  ***Space Complexity :***
+
+  **`O(H)`**, where `H`is the height of given binary tree. It is required for implicit recursive stack space. `H = logN` in case of a complete binary tree and `H=N`in case of a skewed tree.
+  
+*/
+/**
+ * Definition for a binary tree node.
+ * function TreeNode(val, left, right) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.left = (left===undefined ? null : left)
+ *     this.right = (right===undefined ? null : right)
+ * }
+ */
+/**
+ * @param {TreeNode} root
+ * @return {number}
+ */
+var sumOfLeftLeaves = (root) => {
+  return dfs(root, false);
+};
+
+var dfs = (root, isLeft) => {
+  if (!root) return 0;
+  if (!root.left && !root.right) return isLeft ? root.val : 0;
+  return dfs(root.left, true) + dfs(root.right, false);
+};
