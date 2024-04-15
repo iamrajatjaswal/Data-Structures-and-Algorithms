@@ -61,3 +61,27 @@ Therefore, sum = 495 + 491 + 40 =1026.
 **Solution**
 
 */
+/*
+  Approach 1 :: Depth-first search” 
+*/
+/**
+ * Definition for a binary tree node.
+ * function TreeNode(val, left, right) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.left = (left===undefined ? null : left)
+ *     this.right = (right===undefined ? null : right)
+ * }
+ */
+/**
+ * @param {TreeNode} root
+ * @return {number}
+ */
+var sumNumbers = (root) => {
+  return sum(root, 0);
+};
+
+var sum = (n, s) => {
+  if (n === null) return 0;
+  if (n.left === null && n.right === null) return s * 10 + n.val;
+  return sum(n.left, s * 10 + n.val) + sum(n.right, s * 10 + n.val);
+};
