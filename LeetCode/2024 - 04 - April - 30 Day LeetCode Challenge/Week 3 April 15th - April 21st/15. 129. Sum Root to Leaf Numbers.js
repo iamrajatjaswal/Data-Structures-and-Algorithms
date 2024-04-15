@@ -62,7 +62,13 @@ Therefore, sum = 495 + 491 + 40 =1026.
 
 */
 /*
-  Approach 1 :: Depth-first search” 
+  Approach 1 :: Depth-first search” :: T→O(n) : S→O(n)
+
+  **Time Complexity**:
+    The provided solution operates in *`O*(*n*)` time complexity, where *`n`* is the number of nodes in the binary tree. This is because we traverse each node exactly once during the depth-first search.
+
+  **Space Complexity**:
+    In the worst case, the space complexity of the solution is *`O*(*n*)`. This is because the recursion stack can grow as deep as the height of the binary tree, which can be *`O*(*n*)` for an unbalanced tree. However, each recursive call only adds a constant amount of additional information *`O*(1)` space complexity), so the overall space complexity remains *`O*(*n*)`.
 */
 /**
  * Definition for a binary tree node.
