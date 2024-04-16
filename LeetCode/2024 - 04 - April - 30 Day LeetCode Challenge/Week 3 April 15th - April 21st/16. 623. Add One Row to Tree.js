@@ -53,7 +53,12 @@ Output: [4,2,null,1,1,3,null,null,1]
 
 */
 /*
-  Approach 1 :: Depth-first Traversal”  
+  Approach 1 :: Depth-first Traversal” :: T→O(n) : S→O(h)
+
+  - Time complexity: `O(N)`, where `N` is the number of nodes in the binary tree. We visit each node once.
+
+  - Space complexity: `O(H)`, where `H` is the height of the binary tree. The space complexity is determined by the recursion stack.
+  
 */
 /**
  * Definition for a binary tree node.
