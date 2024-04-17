@@ -58,3 +58,44 @@ Output: "abc"
 **Solution**
 
 */
+/*
+  Approach 1 :: Depth-first Traversal”
+*/
+/**
+ * Definition for a binary tree node.
+ * function TreeNode(val, left, right) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.left = (left===undefined ? null : left)
+ *     this.right = (right===undefined ? null : right)
+ * }
+ */
+
+var dfs = function (node, path, smallest) {
+  if (node === null) return;
+
+  // Append current node's character to the path
+  path += String.fromCharCode("a".charCodeAt(0) + node.val);
+
+  // If it's a leaf node, compare and update smallest
+  if (node.left === null && node.right === null) {
+    path = path.split("").reverse().join("");
+    if (smallest.value === "" || path < smallest.value) {
+      smallest.value = path;
+    }
+    path = path.split("").reverse().join(""); // backtrack by reversing again
+  }
+
+  // Recursively traverse left and right subtrees
+  dfs(node.left, path, smallest);
+  dfs(node.right, path, smallest);
+};
+
+/**
+ * @param {TreeNode} root
+ * @return {string}
+ */
+var smallestFromLeaf = function (root) {
+  let smallest = { value: "" };
+  dfs(root, "", smallest);
+  return smallest.value;
+};
