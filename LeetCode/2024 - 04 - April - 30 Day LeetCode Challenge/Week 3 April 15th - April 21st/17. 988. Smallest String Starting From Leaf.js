@@ -59,7 +59,22 @@ Output: "abc"
 
 */
 /*
-  Approach 1 :: Depth-first Traversal”
+  Approach 1 :: Depth-first Traversal” :: T→O(N * h) : S→O(N * h)
+
+  - Time complexity:
+    The time complexity of the provided solution is `O(N⋅h)`, where `N` is the number of nodes in the binary tree and `h` is the height of the tree.
+
+    Here's the breakdown:
+
+    1. **Traversal**: The algorithm traverses every node of the binary tree once in a depth-first manner. This traversal takes `O(N)` time, where `N` is the number of nodes.
+    2. **String Manipulation**: At each leaf node, the algorithm constructs a string representation of the path from the root to that leaf. Constructing this string takes `O(h)` time, where `h` is the height of the tree, because in the worst case, the path from the root to a leaf can contain all nodes.
+
+    Since both the traversal and string manipulation steps occur within the DFS, the overall time complexity is `O(N⋅h)`.
+
+  - Space complexity:
+    The space complexity is also O(N⋅h). This is because the algorithm maintains a call stack for the DFS traversal, which can grow up to the height of the tree h. Additionally, at each leaf node, a string of length h is constructed to represent the path from the root to that leaf. Therefore, the space complexity is dominated by the space used by the call stack and the strings.
+
+  
 */
 /**
  * Definition for a binary tree node.
