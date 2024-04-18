@@ -58,7 +58,14 @@ Output: 4
 
 */
 /*
-  Approach 1 :: Depth-first Traversal”
+  Approach 1 :: Depth-first Traversal” :: T→O(n * m) : S→O(n * m) for the grid otherwise O1)
+  
+    - Time complexity: 
+      `O(n * m)`
+    
+    - Space complexity: 
+        `O(n * m)` -> for the grid
+        - otherwise, S.C. will be `O(1)`.  
 */
 /**
  * @param {number[][]} grid
