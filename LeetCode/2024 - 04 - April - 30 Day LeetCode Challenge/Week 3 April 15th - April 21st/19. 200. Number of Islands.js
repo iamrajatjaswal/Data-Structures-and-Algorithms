@@ -16,7 +16,15 @@ Topics: Array, Depth-First Search, Breadth-First Search, Union Find, Matrix
 
 */
 /*
-  Approach 1 :: Breadth-first Traversal”
+  Approach 1 :: Breadth-first Traversal” :: T→O(M x N) : S→O(M x N)
+  
+  - Time complexity:
+    
+    `O(M x N)`, where `M` is the number of rows and `N` is the number of columns in the grid. We visit each cell once.
+    
+- Space complexity:
+    
+    `O(M × N)`, considering the worst-case scenario where the entire grid is filled with `'1's`, and the call stack reaches its maximum depth due to recursive BFS calls.
 */
 /**
  * @param {character[][]} grid
