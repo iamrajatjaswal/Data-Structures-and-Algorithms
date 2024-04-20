@@ -67,7 +67,15 @@ There are no groups of farmland.
 
 */
 /*
-  Approach 1 :: Depth-first Traversal”
+  Approach 1 :: Depth-first Traversal” :: T→O(M x N) : S→O(K)
+  
+  - Time complexity:
+    
+    `O(M×N)`, where `M`is the number of rows and `N` is the number of columns in the land matrix. We traverse each cell once.
+    
+  - Space complexity:
+    
+    `O(K)`, where `K` is the number of groups of farmland. We store the coordinates of each group in the `result` list.
 */
 /**
  * @param {number[][]} land
