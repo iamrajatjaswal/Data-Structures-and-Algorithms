@@ -55,7 +55,18 @@ Explanation: There is no path from vertex 0 to vertex 5.
 
 */
 /*
-  Approach 1 :: Depth-first Traversal”
+  Approach 1 :: Depth-first Traversal” :: T→O(M x N) : S→O(K)
+  
+  - **Time Complexity:**
+    
+    The time complexity is `O(n + E)`, where n is the number of vertices and E is the number of edges. This is because we traverse each vertex once and iterate through the edges array to update visited vertices.
+    
+  - **Space Complexity:**
+      
+      The space complexity is `O(n)` for the visited array and O(E) for storing the edges information, leading to a total space complexity of `O(n + E)`.
+      
+
+  Overall, this solution efficiently determines the existence of a valid path from the source to the destination in the given bi-directional graph.
 
 */
 /**
