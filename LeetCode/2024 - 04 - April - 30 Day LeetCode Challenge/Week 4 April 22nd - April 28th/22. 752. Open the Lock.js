@@ -60,7 +60,15 @@ Explanation: We cannot reach the target without getting stuck.
 
 */
 /*
-  Approach 1 :: Breadth-first Traversal”
+  Approach 1 :: Breadth-first Traversal” :: T→O(N^2) : S→O(N^2)
+  
+  - Time complexity:
+    
+    `O(N^2)`, where `N` is the number of digits in the lock (constant 4 in this case), and each digit can have 10 possible values.
+    
+  - Space complexity:
+    
+    `O(N^2)`, for the `visit` array and the queues used in BFS.
 
 */
 /**
