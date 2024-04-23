@@ -52,7 +52,18 @@ Output: [3,4]
 
 */
 /*
-  Approach 1 :: "Topological sorting" approach
+  Approach 1 :: "Topological sorting" approach :: T→O(n) : S→O(n)
+  
+  - Time complexity:
+    - The traversal through the edges array takes `O(n)` time.
+    - The while loop processing nodes layer by layer takes `O(n)` time in the worst case.
+    - Overall, the time complexity is `O(n)`.
+    
+  - Space complexity:
+    - The arrays `counts`, `links`, and `dists` each require `O(n)` space.
+    - The queue can have at most `O(n)` elements.
+    - The result list may contain `O(n)` elements in the worst case.
+    - Overall, the space complexity is `O(n)`.
 
 */
 /**
