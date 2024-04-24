@@ -44,7 +44,15 @@ Output: 1389537
 
 */
 /*
-  Approach 1 :: "Dynamic Programming" approach
+  Approach 1 :: "Dynamic Programming" approach :: T→O(n) : S→O(1)
+  
+  - Time complexity:
+    - The loop iterates n times, each iteration taking constant time. 
+      Therefore, the time complexity is `O(n)`.
+  
+  - Space complexity:
+    - We use a constant amount of extra space for the `dp` array. 
+      Therefore, the space complexity is `O(1)`.
 */
 /**
  * @param {number} n
