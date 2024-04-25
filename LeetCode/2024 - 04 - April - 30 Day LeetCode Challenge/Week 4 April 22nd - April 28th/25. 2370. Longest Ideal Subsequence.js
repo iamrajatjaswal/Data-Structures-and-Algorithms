@@ -50,6 +50,14 @@ Explanation: The longest ideal string is "abcd". The length of this string is 4,
 */
 /*
   Approach 1 :: "Dynamic Programming" approach :: T→O(26 * n) : S→O(1)
+
+  - Time complexity:
+      
+      `O(26 ∗ n)` meaning `O(length(s))`
+      
+  - Space complexity:
+      
+      `O(1)`
 */
 /**
  * @param {string} s
