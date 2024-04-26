@@ -48,7 +48,15 @@ Output: 7
 
 */
 /*
-  Approach 1 :: "Dynamic Programming with Memoization" approach
+  Approach 1 :: "Dynamic Programming with Memoization" approach :: T→O(n^2 * m) : S→O(n)
+
+  - Time complexity:
+    - The time complexity of the recursive function `minFallingPathSum` is `O(n * m)`, where n is the number of rows and m is the number of columns in the grid.
+    - Since we call this function for each row of the grid, the overall time complexity is `O(n^2 * m)`.
+  
+  - Space complexity:
+    - The space complexity is O(n) for the recursion stack and `O(1)` for the other variables used, resulting in a total space complexity of `O(n)`.
+
 */
 /**
  * @param {number[][]} grid
