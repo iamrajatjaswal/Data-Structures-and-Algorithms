@@ -47,3 +47,52 @@ Output: 7
 **Solution**
 
 */
+/*
+  Approach 1 :: "Dynamic Programming with Memoization" approach
+*/
+/**
+ * @param {number[][]} grid
+ * @return {number}
+ */
+var minFallingPathSum = function (grid) {
+  const minFallingPathSumHelper = function (row, grid) {
+    if (row === grid.length) {
+      return new Triplet(0, 0, 0);
+    }
+
+    const nextRowTriplet = minFallingPathSumHelper(row + 1, grid);
+    let currentTriplet = new Triplet(
+      Number.MAX_SAFE_INTEGER,
+      Number.MAX_SAFE_INTEGER,
+      -1
+    );
+
+    for (let col = 0; col < grid[0].length; col++) {
+      const value =
+        grid[row][col] +
+        (col !== nextRowTriplet.minSumIndex
+          ? nextRowTriplet.minSum
+          : nextRowTriplet.secondMinSum);
+      if (value <= currentTriplet.minSum) {
+        currentTriplet.secondMinSum = currentTriplet.minSum;
+        currentTriplet.minSum = value;
+        currentTriplet.minSumIndex = col;
+      } else if (value < currentTriplet.secondMinSum) {
+        currentTriplet.secondMinSum = value;
+      }
+    }
+
+    return currentTriplet;
+  };
+
+  const n = grid.length;
+  return minFallingPathSumHelper(0, grid).minSum;
+};
+
+class Triplet {
+  constructor(minSum, secondMinSum, minSumIndex) {
+    this.minSum = minSum;
+    this.secondMinSum = secondMinSum;
+    this.minSumIndex = minSumIndex;
+  }
+}
