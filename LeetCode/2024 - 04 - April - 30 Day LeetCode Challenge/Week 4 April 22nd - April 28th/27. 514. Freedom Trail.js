@@ -55,7 +55,12 @@ Output: 13
 
 */
 /*
-  Approach 1 :: "Dynamic Programming with Memoization”
+  Approach 1 :: "Dynamic Programming with Memoization” :: T→O(n * m) : S→O(n * m)
+
+  - Time complexity: The time complexity of the recursive function with memoization is `O(n * m)`, where n is the length of the keyword and m is the length of the ring. Each state of the recursion tree is calculated only once due to memoization.
+  
+  - Space complexity: The space complexity is `O(n * m)` due to the memoization array.
+  
 */
 /**
  * @param {string} ring
