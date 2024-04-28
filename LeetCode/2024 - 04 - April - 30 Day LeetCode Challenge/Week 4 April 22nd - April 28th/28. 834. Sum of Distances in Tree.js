@@ -62,3 +62,47 @@ Output: [1,1]
 **Solution**
 
 */
+/*
+
+  Approach 1 :: "Depth-First Traversal"
+*/
+/**
+ * @param {number} n
+ * @param {number[][]} edges
+ * @return {number[]}
+ */
+var sumOfDistancesInTree = function (n, edges) {
+  const graph = Array(n)
+    .fill(0)
+    .map(() => []);
+  const subtreeCount = Array(n).fill(1);
+  const distanceSum = Array(n).fill(0);
+
+  for (const [u, v] of edges) {
+    graph[u].push(v);
+    graph[v].push(u);
+  }
+
+  const postOrder = (node, parent) => {
+    for (const child of graph[node]) {
+      if (child === parent) continue;
+      postOrder(child, node);
+      subtreeCount[node] += subtreeCount[child];
+      distanceSum[node] += distanceSum[child] + subtreeCount[child];
+    }
+  };
+
+  const preOrder = (node, parent) => {
+    for (const child of graph[node]) {
+      if (child === parent) continue;
+      distanceSum[child] =
+        distanceSum[node] - subtreeCount[child] + (n - subtreeCount[child]);
+      preOrder(child, node);
+    }
+  };
+
+  postOrder(0, -1);
+  preOrder(0, -1);
+
+  return distanceSum;
+};
