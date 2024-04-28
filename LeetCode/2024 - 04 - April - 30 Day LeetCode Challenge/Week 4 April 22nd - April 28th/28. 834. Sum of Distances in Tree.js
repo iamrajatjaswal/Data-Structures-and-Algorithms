@@ -64,7 +64,16 @@ Output: [1,1]
 */
 /*
 
-  Approach 1 :: "Depth-First Traversal"
+  Approach 1 :: "Depth-First Traversal" :: T→O(n) : S→O(n)
+  
+  - Time complexity:
+    
+    `O(n)`, where n is the number of nodes in the tree. Both depth-first traversals require visiting each node once.
+    
+  - Space complexity:
+    
+    `O(n)`, as we store the graph representation and arrays to track subtree sizes and distance sums, each of size n.
+  
 */
 /**
  * @param {number} n
