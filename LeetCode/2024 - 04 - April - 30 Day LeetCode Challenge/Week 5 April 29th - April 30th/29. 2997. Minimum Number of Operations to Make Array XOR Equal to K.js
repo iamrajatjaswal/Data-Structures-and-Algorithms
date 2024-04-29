@@ -53,7 +53,15 @@ Explanation: The XOR of elements of the array is (2 XOR 0 XOR 2 XOR 0) == 0 == k
 */
 /*
 
-  Approach 1 :: "Bit Manipulation"
+  Approach 1 :: "Bit Manipulation" :: T→O(n + log(k)) : S→O(1)
+  
+  - Time complexity:
+    
+    The loop iterating through each element in nums takes `O(n)`, where n is the length of the array.Counting set bits in res requires `O(log(k))` operations.Overall, the time complexity is `O(n + log(k))`.
+    
+  - Space complexity:
+    
+    The space complexity is `O(1)` since we are using a constant amount of extra space, irrespective of the input size.
   
 */
 /**
