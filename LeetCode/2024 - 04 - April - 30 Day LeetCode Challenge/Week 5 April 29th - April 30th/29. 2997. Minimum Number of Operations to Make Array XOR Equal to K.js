@@ -51,3 +51,33 @@ Explanation: The XOR of elements of the array is (2 XOR 0 XOR 2 XOR 0) == 0 == k
 **Solution**
 
 */
+/*
+
+  Approach 1 :: "Bit Manipulation"
+  
+*/
+/**
+ * @param {number[]} nums
+ * @param {number} k
+ * @return {number}
+ */
+/**
+ * @param {number[]} nums
+ * @param {number} k
+ * @return {number}
+ */
+var minOperations = function (nums, k) {
+  let res = k;
+
+  for (const num of nums) {
+    res ^= num;
+  }
+
+  let count = 0;
+  while (res > 0) {
+    count += res & 1;
+    res >>= 1;
+  }
+
+  return count;
+};
