@@ -71,7 +71,16 @@ Explanation: The two wonderful substrings are underlined below:
 */
 /*
 
-  Approach 1 :: "Bit Manipulation"
+  Approach 1 :: "Bit Manipulation" :: T→O(N) : S→O(1)
+
+  - Time Complexity:
+    
+    `O(N)` where `N` is the length of the input string word. This is because the solution iterates through each character of the string only once.
+    
+  - Space Complexity:
+    
+    `O(1)` since the space usage is independent of the input size `N`. However, the array mp has a fixed size of `1024`.
+  
 */
 /**
  * @param {string} word
