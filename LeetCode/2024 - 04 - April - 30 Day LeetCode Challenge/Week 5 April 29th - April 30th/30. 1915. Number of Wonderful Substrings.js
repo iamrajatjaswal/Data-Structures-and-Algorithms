@@ -69,3 +69,24 @@ Explanation: The two wonderful substrings are underlined below:
 **Solution**
 
 */
+/*
+
+  Approach 1 :: "Bit Manipulation"
+*/
+/**
+ * @param {string} word
+ * @return {number}
+ */
+var wonderfulSubstrings = function (word) {
+  let res = 0;
+  let x = 0;
+  const mp = Array(1024).fill(0);
+  mp[x] = 1;
+  for (let ch of word) {
+    x ^= 1 << (ch.charCodeAt(0) - "a".charCodeAt(0));
+    res += mp[x];
+    for (let i = 0; i <= 9; i++) res += mp[x ^ (1 << i)];
+    mp[x]++;
+  }
+  return res;
+};
