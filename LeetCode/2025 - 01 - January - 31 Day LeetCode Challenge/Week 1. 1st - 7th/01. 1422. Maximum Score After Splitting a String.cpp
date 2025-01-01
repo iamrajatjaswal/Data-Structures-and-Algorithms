@@ -53,6 +53,10 @@ Output: 3
 
 **Solution**
 
+- **Time Complexity**: O(n)
+  
+- **Space Complexity**: O(n)
+
 */
 
 #include <bits/stdc++.h>
@@ -86,6 +90,7 @@ int maxScore(string s) {
 
 int main() {
   // maxScore();
+
 
   return 0;
 }
