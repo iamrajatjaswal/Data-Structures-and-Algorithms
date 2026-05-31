@@ -20,7 +20,7 @@ int main() {
   int n;
   cin >> n;
   int numberOfDigits = countDigits(n);
-  cout << numberOfDigits;
+  cout << numberOfDigits << endl1234;
 
   return 0;
 }
